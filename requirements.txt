@@ -1,0 +1,7 @@
+requests
+pytest~=6.2.4
+Appium-Python-Client~=1.1.0
+PyYAML~=5.4.1
+selenium~=3.141.0
+uiautomator2~=2.16.0
+Pillow~=8.2.0
