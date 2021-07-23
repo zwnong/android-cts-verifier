@@ -34,7 +34,7 @@ def handle_black(fun):
             return fun(*args, **kwargs)
         except Exception:
             # 使用allure打开截图
-            allure.attach(instance.screenshot(), attachment_type=allure.attachment_type.PNG)
+            # allure.attach(instance.screenshot(), attachment_type=allure.attachment_type.PNG)
             # 截图到本地
             # instance.screenshot_as_file()
             for i in black_list:

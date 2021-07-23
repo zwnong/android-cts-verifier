@@ -7,7 +7,6 @@
 @time: 2021/3/9 21:52
 """
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException

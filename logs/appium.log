@@ -1,15 +1,134 @@
-2021-07-15 11:01:42:825 [Appium] Welcome to Appium v1.21.0
-2021-07-15 11:01:42:827 [Appium] Non-default server args:
-2021-07-15 11:01:42:827 [Appium]   port: 4700
-2021-07-15 11:01:42:827 [Appium]   bootstrapPort: 4900
-2021-07-15 11:01:42:827 [Appium]   sessionOverride: true
-2021-07-15 11:01:42:828 [Appium]   logFile: ../logs/appium.log
-2021-07-15 11:01:42:828 [Appium]   udid: DVKS232D20110300016
-2021-07-15 11:01:42:828 [Appium]   noReset: true
-2021-07-15 11:01:42:829 [Appium] Deprecated server args:
-2021-07-15 11:01:42:829 [Appium]   -U => --default-capabilities
-2021-07-15 11:01:42:829 [Appium]   --no-reset => --default-capabilities
-2021-07-15 11:01:42:829 [Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
-2021-07-15 11:01:42:830 [Appium]   udid: DVKS232D20110300016
-2021-07-15 11:01:42:830 [Appium]   noReset: true
-2021-07-15 11:01:42:860 [Appium] Appium REST http interface listener started on 0.0.0.0:4700
+2021-07-16 05:25:36:186 [Appium] Welcome to Appium v1.21.0
+2021-07-16 05:25:36:187 [Appium] Non-default server args:
+2021-07-16 05:25:36:188 [Appium]   port: 4701
+2021-07-16 05:25:36:188 [Appium]   bootstrapPort: 4900
+2021-07-16 05:25:36:188 [Appium]   sessionOverride: true
+2021-07-16 05:25:36:189 [Appium]   logFile: ../logs/appium.log
+2021-07-16 05:25:36:189 [Appium]   udid: DVKS232D20110300016
+2021-07-16 05:25:36:189 [Appium]   noReset: true
+2021-07-16 05:25:36:190 [Appium] Deprecated server args:
+2021-07-16 05:25:36:190 [Appium]   -U => --default-capabilities
+2021-07-16 05:25:36:190 [Appium]   --no-reset => --default-capabilities
+2021-07-16 05:25:36:190 [Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
+2021-07-16 05:25:36:191 [Appium]   udid: DVKS232D20110300016
+2021-07-16 05:25:36:191 [Appium]   noReset: true
+2021-07-16 05:25:36:225 [Appium] Appium REST http interface listener started on 0.0.0.0:4701
+2021-07-16 05:25:44:059 [HTTP] Request idempotency key: 2d802725-444e-40ea-b258-cd5afb99ed59
+2021-07-16 05:25:44:099 [HTTP] --> POST /wd/hub/session
+2021-07-16 05:25:44:099 [HTTP] {"capabilities":{"firstMatch":[{"platformName":"Android","appium:deviceName":"DVKS232D20110300016","appium:appPackage":"com.android.cts.verifier","appium:appActivity":"com.android.cts.verifier.CtsVerifierActivity","appium:noReset":"True"}]},"desiredCapabilities":{"platformName":"Android","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","noReset":"True"}}
+2021-07-16 05:25:44:101 [W3C] Calling AppiumDriver.createSession() with args: [{"platformName":"Android","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","noReset":"True"},null,{"firstMatch":[{"platformName":"Android","appium:deviceName":"DVKS232D20110300016","appium:appPackage":"com.android.cts.verifier","appium:appActivity":"com.android.cts.verifier.CtsVerifierActivity","appium:noReset":"True"}]}]
+2021-07-16 05:25:44:102 [BaseDriver] Event 'newSessionRequested' logged at 1626413144102 (13:25:44 GMT+0800 (中国标准时间))
+2021-07-16 05:25:44:106 [BaseDriver] The following capabilities are not standard capabilities and should have an extension prefix:
+2021-07-16 05:25:44:107 [BaseDriver]   udid
+2021-07-16 05:25:44:111 [Appium] Could not parse W3C capabilities: 'noReset' must be of type boolean
+2021-07-16 05:25:44:111 [Appium] Trying to fix W3C capabilities by merging them with JSONWP caps
+2021-07-16 05:25:44:112 [BaseDriver] The following capabilities are not standard capabilities and should have an extension prefix:
+2021-07-16 05:25:44:113 [BaseDriver]   udid
+2021-07-16 05:25:44:113 [BaseDriver]   deviceName
+2021-07-16 05:25:44:113 [BaseDriver]   appPackage
+2021-07-16 05:25:44:113 [BaseDriver]   appActivity
+2021-07-16 05:25:44:113 [BaseDriver]   noReset
+2021-07-16 05:25:44:115 [Appium] Could not parse fixed W3C capabilities: 'noReset' must be of type boolean. Falling back to JSONWP protocol
+2021-07-16 05:25:44:116 [Appium] 
+2021-07-16 05:25:44:116 [Appium] ======================================================================
+2021-07-16 05:25:44:116 [Appium]   DEPRECATION WARNING:
+2021-07-16 05:25:44:117 [Appium] 
+2021-07-16 05:25:44:117 [Appium]   The 'automationName' capability was not provided in the desired 
+2021-07-16 05:25:44:117 [Appium]   capabilities for this Android session
+2021-07-16 05:25:44:117 [Appium] 
+2021-07-16 05:25:44:117 [Appium]   Setting 'automationName=UiAutomator2' by default and using the 
+2021-07-16 05:25:44:118 [Appium]   UiAutomator2 Driver
+2021-07-16 05:25:44:118 [Appium] 
+2021-07-16 05:25:44:118 [Appium]   The next major version of Appium (2.x) will **require** the 
+2021-07-16 05:25:44:118 [Appium]   'automationName' capability to be set for all sessions on all 
+2021-07-16 05:25:44:118 [Appium]   platforms
+2021-07-16 05:25:44:118 [Appium] 
+2021-07-16 05:25:44:119 [Appium]   In previous versions (Appium <= 1.13.x), the default was 
+2021-07-16 05:25:44:119 [Appium]   'automationName=UiAutomator1'
+2021-07-16 05:25:44:119 [Appium] 
+2021-07-16 05:25:44:119 [Appium]   If you wish to use that automation instead of UiAutomator2, please 
+2021-07-16 05:25:44:119 [Appium]   add 'automationName=UiAutomator1' to your desired capabilities
+2021-07-16 05:25:44:119 [Appium] 
+2021-07-16 05:25:44:120 [Appium]   For more information about drivers, please visit 
+2021-07-16 05:25:44:120 [Appium]   http://appium.io/docs/en/about-appium/intro/ and explore the 
+2021-07-16 05:25:44:120 [Appium]   'Drivers' menu
+2021-07-16 05:25:44:120 [Appium] 
+2021-07-16 05:25:44:120 [Appium] ======================================================================
+2021-07-16 05:25:44:120 [Appium] 
+2021-07-16 05:25:44:443 [Appium] Appium v1.21.0 creating new AndroidUiautomator2Driver (v1.65.0) session
+2021-07-16 05:25:44:444 [Appium] There are no active sessions for cleanup
+2021-07-16 05:25:44:446 [BaseDriver] Creating session with MJSONWP desired capabilities: {
+2021-07-16 05:25:44:447 [BaseDriver]   "udid": "DVKS232D20110300016",
+2021-07-16 05:25:44:447 [BaseDriver]   "noReset": "True",
+2021-07-16 05:25:44:447 [BaseDriver]   "platformName": "Android",
+2021-07-16 05:25:44:447 [BaseDriver]   "deviceName": "DVKS232D20110300016",
+2021-07-16 05:25:44:447 [BaseDriver]   "appPackage": "com.android.cts.verifier",
+2021-07-16 05:25:44:447 [BaseDriver]   "appActivity": "com.android.cts.verifier.CtsVerifierActivity"
+2021-07-16 05:25:44:447 [BaseDriver] }
+2021-07-16 05:25:44:448 [BaseDriver] Capability 'noReset' changed from string to boolean. This may cause unexpected behavior
+2021-07-16 05:25:44:452 [BaseDriver] Session created with session id: 73024492-8060-4f2c-9cdd-8cca836b68f9
+2021-07-16 05:25:44:453 [UiAutomator2] Starting 'com.android.cts.verifier' directly on the device
+2021-07-16 05:25:44:460 [ADB] Found 1 'build-tools' folders under 'D:\Program Files\Android\SDK' (newest first):
+2021-07-16 05:25:44:460 [ADB]     D:/Program Files/Android/SDK/build-tools/30.0.3
+2021-07-16 05:25:44:460 [ADB] Using 'adb.exe' from 'D:\Program Files\Android\SDK\platform-tools\adb.exe'
+2021-07-16 05:25:44:461 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 start-server'
+2021-07-16 05:25:44:540 [AndroidDriver] Retrieving device list
+2021-07-16 05:25:44:540 [ADB] Trying to find a connected android device
+2021-07-16 05:25:44:541 [ADB] Getting connected devices
+2021-07-16 05:25:44:601 [ADB] Connected devices: [{"udid":"DVKS232D20110300016","state":"device"}]
+2021-07-16 05:25:44:601 [AndroidDriver] Using device: DVKS232D20110300016
+2021-07-16 05:25:44:602 [ADB] Using 'adb.exe' from 'D:\Program Files\Android\SDK\platform-tools\adb.exe'
+2021-07-16 05:25:44:602 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 start-server'
+2021-07-16 05:25:44:658 [ADB] Setting device id to DVKS232D20110300016
+2021-07-16 05:25:44:658 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell getprop ro.build.version.sdk'
+2021-07-16 05:25:44:747 [ADB] Current device property 'ro.build.version.sdk': 30
+2021-07-16 05:25:44:747 [ADB] Getting device platform version
+2021-07-16 05:25:44:748 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell getprop ro.build.version.release'
+2021-07-16 05:25:44:836 [ADB] Current device property 'ro.build.version.release': 11
+2021-07-16 05:25:44:836 [ADB] Device API level: 30
+2021-07-16 05:25:44:836 [UiAutomator2] Relaxing hidden api policy
+2021-07-16 05:25:44:837 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell 'settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1''
+2021-07-16 05:25:45:042 [AndroidDriver] No app sent in, not parsing package/activity
+2021-07-16 05:25:45:043 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 wait-for-device'
+2021-07-16 05:25:45:107 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell echo ping'
+2021-07-16 05:25:45:182 [AndroidDriver] Pushing settings apk to device...
+2021-07-16 05:25:45:183 [ADB] Getting install status for io.appium.settings
+2021-07-16 05:25:45:183 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell dumpsys package io.appium.settings'
+2021-07-16 05:25:45:290 [ADB] 'io.appium.settings' is installed
+2021-07-16 05:25:45:290 [ADB] Getting package info for 'io.appium.settings'
+2021-07-16 05:25:45:291 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell dumpsys package io.appium.settings'
+2021-07-16 05:25:45:431 [ADB] The version name of the installed 'io.appium.settings' is greater or equal to the application version name ('3.3.0' >= '3.3.0')
+2021-07-16 05:25:45:431 [ADB] There is no need to install/upgrade 'C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\io.appium.settings\apks\settings_apk-debug.apk'
+2021-07-16 05:25:45:432 [ADB] Getting IDs of all 'io.appium.settings' processes
+2021-07-16 05:25:45:432 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell 'pgrep --help; echo $?''
+2021-07-16 05:25:45:535 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell pgrep -f \(\[\[:blank:\]\]\|\^\)io\.appium\.settings\(\[\[:blank:\]\]\|\$\)'
+2021-07-16 05:25:45:682 [AndroidDriver] io.appium.settings is already running. There is no need to reset its permissions.
+2021-07-16 05:25:45:683 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell appops set io.appium.settings android:mock_location allow'
+2021-07-16 05:25:45:802 [Logcat] Starting logs capture with command: 'D:\\Program Files\\Android\\SDK\\platform-tools\\adb.exe' -P 5037 -s DVKS232D20110300016 logcat -v threadtime
+2021-07-16 05:25:46:297 [UiAutomator2] Forwarding UiAutomator2 Server port 6790 to local port 8200
+2021-07-16 05:25:46:297 [ADB] Forwarding system: 8200 to device: 6790
+2021-07-16 05:25:46:298 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 forward tcp:8200 tcp:6790'
+2021-07-16 05:25:46:380 [ADB] Getting install status for io.appium.uiautomator2.server
+2021-07-16 05:25:46:380 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell dumpsys package io.appium.uiautomator2.server'
+2021-07-16 05:25:46:489 [ADB] 'io.appium.uiautomator2.server' is installed
+2021-07-16 05:25:46:489 [ADB] Getting package info for 'io.appium.uiautomator2.server'
+2021-07-16 05:25:46:489 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell dumpsys package io.appium.uiautomator2.server'
+2021-07-16 05:25:46:642 [ADB] The version name of the installed 'io.appium.uiautomator2.server' is greater or equal to the application version name ('4.21.1' >= '4.21.1')
+2021-07-16 05:25:46:642 [UiAutomator2] io.appium.uiautomator2.server installation state: sameVersionInstalled
+2021-07-16 05:25:46:643 [ADB] Checking app cert for C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.21.1.apk
+2021-07-16 05:25:46:649 [ADB] Using 'apksigner.jar' from 'D:\Program Files\Android\SDK\build-tools\30.0.3\lib\apksigner.jar'
+2021-07-16 05:25:46:655 [UiAutomator2] Deleting UiAutomator2 session
+2021-07-16 05:25:46:657 [UiAutomator2] Deleting UiAutomator2 server session
+2021-07-16 05:25:46:660 [WD Proxy] Matched '/' to command name 'deleteSession'
+2021-07-16 05:25:46:662 [UiAutomator2] Did not get confirmation UiAutomator2 deleteSession worked; Error was: UnknownError: An unknown server-side error occurred while processing the command. Original error: Trying to proxy a session command without session id
+2021-07-16 05:25:46:662 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell am force-stop com.android.cts.verifier'
+2021-07-16 05:25:46:802 [Logcat] Stopping logcat capture
+2021-07-16 05:25:46:810 [ADB] Removing forwarded port socket connection: 8200 
+2021-07-16 05:25:46:811 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 forward --remove tcp:8200'
+2021-07-16 05:25:46:884 [UiAutomator2] Restoring hidden api policy to the device default configuration
+2021-07-16 05:25:46:884 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s DVKS232D20110300016 shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy''
+2021-07-16 05:25:47:087 [BaseDriver] Event 'newSessionStarted' logged at 1626413147087 (13:25:47 GMT+0800 (中国标准时间))
+2021-07-16 05:25:47:120 [MJSONWP] Encountered internal error running command: Error: Cannot verify the signature of 'C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.21.1.apk'. Original error: The JAVA_HOME environment variable must be set for Android Tools to work properly
+2021-07-16 05:25:47:120 [MJSONWP]     at ADB.checkApkCert (C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-adb\lib\tools\apk-signing.js:270:11)
+2021-07-16 05:25:47:126 [HTTP] <-- POST /wd/hub/session 500 3025 ms - 420
+2021-07-16 05:25:47:126 [HTTP] 
