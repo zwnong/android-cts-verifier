@@ -11,7 +11,7 @@ from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
-from ui_framework.decorator.handle_black_list import handle_black
+from decorator.handle_black_list import handle_black
 from utils.logger import log
 
 
