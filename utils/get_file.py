@@ -15,7 +15,7 @@ sys.path.append('..')
 class GetFile:
     def __init__(self, file_path=None):
         if file_path is None:
-            self.file_path = r'../../ui_framework/app/data/caps.yaml'
+            self.file_path = r'../config\data.yaml'
         else:
             self.file_path = file_path
         self.data = self.get_yaml()
@@ -23,9 +23,6 @@ class GetFile:
     def get_yaml(self):
         data = yaml.safe_load(open(str(self.file_path), 'r', encoding='utf-8'))
         return data
-
-    def get_all(self):
-        print(self.data)
 
     # 传入key获取value
     def get_yaml_data(self, *args):
@@ -38,5 +35,5 @@ class GetFile:
 
 
 if __name__ == '__main__':
-    run = GetFile(r"../config/caps.yaml")
-    run.get_all()
+    run = GetFile(r"E:\HogwartsSDE17_HomeWork\member_info_tb.yaml")
+    print(run.get_yaml_data('addcontcts'))

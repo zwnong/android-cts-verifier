@@ -1,95 +1,41 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time    : 2021/6/1 19:15
-# @Author  : zwnong
-# @File    : server.py
-# @Software: win10 Tensorflow1.13.1 python3.9.5
+#!/user/bin/env python
+# encoding: utf-8
+"""
+@author: zwnong
+@project: HogwartsSDE17
+@file: server.py
+@time: 2021/2/27 21:48
+"""
 from utils.dos_cmd import DosCmd
-from utils.port import Port
-import threading
-import time
-from utils.write_user_command import WriteUserCommand
 
 
 class Server:
     def __init__(self):
         self.dos = DosCmd()
-        self.device_list = self.get_devices()
-        self.write_file = WriteUserCommand()
 
-    def get_devices(self):
+    def kill_node_server(self):
         """
-        获取设备信息
+        查找：tasklist | find "node.exe"
+        杀进程：taskkill -F -PID node.exe
+        :return:
         """
-        devices_list = []
-        result_list = self.dos.excute_cmd_result('adb devices')
-        if len(result_list) >= 2:
-            for i in result_list:
-                if 'List' in i:
-                    continue
-                devices_info = i.split('\t')
-                if devices_info[1] == 'device':
-                    devices_list.append(devices_info[0])
-            return devices_list
-        else:
-            return None
-
-    def create_port_list(self, start_port):
-        """
-        创建可用端口
-        """
-        port = Port()
-        port_list = []
-        port_list = port.create_port_list(start_port, self.device_list)
-        return port_list
-
-    def create_command_list(self, i):
-        """
-        生成命令
-        """
-        # appium -p 4700 -bp 4701 -U 127.0.0.1:21503
-
-        command_list = []
-        appium_port_list = self.create_port_list(4700)
-        bootstrap_port_list = self.create_port_list(4900)
-        device_list = self.device_list
-        command = "appium -p " + str(appium_port_list[i]) + " -bp " + str(bootstrap_port_list[i]) + " -U " + \
-                  device_list[i] + " --no-reset --session-override --log ../logs/appium.log"
-        # appium -p 4723 -bp 4726 -U 127.0.0.1:62001 --no-reset --session-override --log E:/test01.log
-        command_list.append(command)
-        self.write_file.write_data(i, device_list[i], str(bootstrap_port_list[i]), str(appium_port_list[i]))
-
-        return command_list
-
-    def start_server(self, i):
-        """
-        启动服务
-        """
-        self.start_list = self.create_command_list(i)
-        print(self.start_list)
-
-        self.dos.excute_cmd(self.start_list[0])
-
-    def kill_server(self):
+        # 查找结果列表
         server_list = self.dos.excute_cmd_result('tasklist | find "node.exe"')
         if len(server_list) > 0:
             self.dos.excute_cmd('taskkill -F -PID node.exe')
 
-    def main(self):
-        thread_list = []
-        self.kill_server()
-        self.write_file.clear_data()
-        for i in range(len(self.device_list)):
-            appium_start = threading.Thread(target=self.start_server, args=(i,))
-            thread_list.append(appium_start)
-        for j in thread_list:
-            j.start()
-        time.sleep(10)
+    def kill_chrome_server(self):
+        """
+        查找：tasklist | find "chrome.exe"
+        杀进程：taskkill -F -PID chrome.exe
+        :return:
+        """
+        # 查找结果列表
+        server_list = self.dos.excute_cmd_result('tasklist | find "chrome.exe"')
+        if len(server_list) > 0:
+            self.dos.excute_cmd('taskkill -F -PID chrome.exe')
 
 
 if __name__ == '__main__':
-    server = Server()
-    # print(server.main())
-    # server.kill_server()
-    # print(server.get_devices())
-    server.main()
+    run = Server()
+    run.kill_chrome_server()

@@ -6,18 +6,13 @@
 @file: base_page.py
 @time: 2021/3/9 21:52
 """
-from selenium.webdriver.common.by import By
+import yaml
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
-from decorator.handle_black_list import handle_black
-from utils.get_file import GetFile
+from ui_framework.decorator.handle_black_list import handle_black
 from utils.logger import log
-import os
-import subprocess
-import time
-import yaml
 
 
 class BasePage:
@@ -33,8 +28,27 @@ class BasePage:
         :return:
         """
         log.debug('find' + element)
-        return WebDriverWait(self.driver, 5).until(lambda x: x.find_element(locator, element))
-        # return self.driver.find_element(locator, element)
+        return self.driver.find_element(locator, element)
+        # black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',
+        #               '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']
+        # try:
+        #     return self.driver.find_element(locator, element)
+        # except Exception:
+        #         for i in black_list:
+        #             ele_path = self.finds(locator, i)
+        #             if len(ele_path) > 0:
+        #                 ele_path[0].click()
+        #         return self.find(locator, element)
+        # black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',
+        #               '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']
+        # try:
+        #     return self.driver.find_element(locator, element)
+        # except Exception:
+        #     for i in black_list:
+        #         ele_path = self.finds(locator, i)
+        #         if len(ele_path) > 0:
+        #             ele_path[0].click()
+        #             return self.find(locator, element)
 
     def find_and_click(self, locator, element):
         """
@@ -48,63 +62,85 @@ class BasePage:
     def find_and_sendkeys(self, locator, element, value):
         return self.find(locator, element).send_keys(value)
 
-    @handle_black
     def finds(self, locator, value):
         return self.driver.find_elements(locator, value)
 
     def web_driver_wait(self, locator, value):
         return WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element(locator, value))
 
-    # 获取屏幕分辨率
+    def verify_add_member_ok(self):
+        assert '添加成功' in self.driver.page_source()
+
+    def verify_del_member_ok(self):
+        assert '' in self.driver.page_source()
+
+    # def get_yaml_data(self, file_path=None, value=None):
+    #     if file_path is None:
+    #         self.file_path = r'../config\data.yaml'
+    #     else:
+    #         self.file_path = file_path
+    #     data = yaml.safe_load(open(str(self.file_path), 'r', encoding='utf-8'))
+    #     try:
+    #         value = data.get()
+    #     except EOFError:
+    #         value = None
+    #     return value
+
+    # 获取屏幕的宽高
     def get_size(self):
         size = self.driver.get_window_size()
         width = size['width']
         height = size['height']
         return width, height
 
-    # 向左滑动
-    def swipe_left(self, duration=None):
+    # 向左边滑动
+    def swipe_left(self):
+        # [100,200]
         x1 = self.get_size()[0] / 10 * 9
         y1 = self.get_size()[1] / 2
         x = self.get_size()[0] / 10
-        self.driver.swipe(x1, y1, x, y1, duration)
+        self.driver.swipe(x1, y1, x, y1, 2000)
 
-    # 想右滑动
-    def swipe_reight(self, duration=None):
+    # 向右边滑动
+    def swipe_right(self):
+        # [100,200]
         x1 = self.get_size()[0] / 10
         y1 = self.get_size()[1] / 2
         x = self.get_size()[0] / 10 * 9
-        self.driver.swipe(x1, y1, x, y1, duration)
+        self.driver.swipe(x1, y1, x, y1, 2000)
 
     # 向上滑动
-    def swipe_up(self, duration=None):
+    def swipe_up(self):
+        # [100,200]direction
         x1 = self.get_size()[0] / 2
         y1 = self.get_size()[1] / 10 * 9
         y = self.get_size()[1] / 10
-        self.driver.swipe(x1, y1, x1, y, duration)
+        self.driver.swipe(x1, y1, x1, y, 1000)
 
-    # 想下滑动
-    def swipe_down(self, duration=None):
+    # 向下滑动
+    def swipe_down(self):
         x1 = self.get_size()[0] / 2
         y1 = self.get_size()[1] / 10
         y = self.get_size()[1] / 10 * 9
-        self.driver.swipe(x1, y1, x1, y, duration)
+        self.driver.swipe(x1, y1, x1, y, 1000)
 
-    # 指定方向滑动
-    def swip_on(self, direction):
+    def swipe_on(self, direction=None):
         if direction == 'up':
             self.swipe_up()
         elif direction == 'down':
             self.swipe_down()
         elif direction == 'left':
-            self.swipe_down()
+            self.swipe_left()
         else:
-            self.swipe_reight()
+            self.swipe_right()
 
-    def swipe_find(self, yaml_path, fun_name, num=3):
-        with open(yaml_path, 'r+', encoding='utf-8') as f:
-            functance = yaml.load(f)
-        steps = functance.get(fun_name)
+    def swipe_find(self, expression, num=3):
+        """
+        # 上下滑动查找元素
+        :param expression: 滑动页数，默认为3页
+        :param num:
+        :return:
+        """
         for i in range(num):
             if i == num - 1:
                 self.driver.implicitly_wait(5)
@@ -112,11 +148,11 @@ class BasePage:
 
             self.driver.implicitly_wait(1)
             try:
-                element = self.driver.find_element(By.XPATH, steps.get('element'))
+                element = self.driver.find_element(MobileBy.XPATH, expression)
                 self.driver.implicitly_wait(5)
                 return element
-            except:
-                self.swipe_down()
+            except Exception:
+                self.swipe_up()
 
     def parse(self, yaml_path, fun_name):
         """
@@ -125,7 +161,7 @@ class BasePage:
         :param fun_name: yaml文件定义的方法名
         :return:
         """
-        with open(yaml_path, 'r+', encoding='utf-8') as f:
+        with open(yaml_path, 'r', encoding='utf-8') as f:
             functance = yaml.load(f)
         steps = functance.get(fun_name)
         for step in steps:
@@ -135,66 +171,4 @@ class BasePage:
                 self.find_and_sendkeys(step.get('locator'), step.get('element'), step.get('contents'))
 
     def screenshot(self):
-        """
-        截图
-        :return:
-        """
         return self.driver.get_screenshot_as_png()
-
-    def input_enter(self):
-        return self.driver.keyevent(66)
-
-    def screenshot_as_file(self):
-        '''
-        截图功能
-        :return:
-        '''
-        timestr = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-        file_name = fr'../app/images/{timestr}.png'
-        return self.driver.get_screenshot_as_file(file_name)
-
-    def base_unlock(self):
-        """
-        解锁手机
-        :return:
-        """
-        os.system('adb shell input keyevent 82')
-        time.sleep(0.5)
-        os.system('adb shell input keyevent 82')
-
-    def get_web_view(shelf, driver):
-        webview = driver.contexts
-        for viw in webview:
-            if 'WEBVIEW_cn.com.open.mooc' in viw:
-                driver.switch_to.context(viw)
-                break
-        driver.find_element_by_link_text('C').click()
-        try:
-            driver.find_element_by_id('cn.com.open.mooc:id/left_icon').click()
-        except Exception as e:
-            driver.switch_to.context(webview[0])
-            driver.find_element_by_id('cn.com.open.mooc:id/left_icon').click()
-            raise e
-
-    def page_source(self):
-        return self.driver.page_source
-
-    def pwd_path(self):
-        return os.getcwd()
-
-    def father_path(self):
-        father_path = os.path.abspath(os.path.dirname(self.pwd_path()) + os.path.sep + ".")
-        return father_path
-
-    def grader_father_path(self):
-        grader_father_path = os.path.abspath(os.path.dirname(self.pwd_path()) + os.path.sep + "..")
-        return grader_father_path
-
-    def get_caps(self, param):
-        get_data = GetFile(file_path=fr'{self.father_path()}\data\caps.yaml')
-        if param == 'caps':
-            return get_data.get_yaml_data('desirecaps_cts')
-        elif param == 'IP':
-            return get_data.get_yaml_data('server')['IP']
-        else:
-            return get_data.get_yaml_data('server')['port']

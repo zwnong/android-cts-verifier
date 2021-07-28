@@ -1,0 +1,10 @@
+goto_market:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]
+
+
+
+
+
+

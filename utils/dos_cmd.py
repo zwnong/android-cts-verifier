@@ -14,6 +14,7 @@ class DosCmd:
                 continue
             result_list.append(i.strip('\n'))
         return result_list
+
     # 仅运行命令不获取结果
     def excute_cmd(self, command):
         os.system(command)

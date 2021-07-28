@@ -8,9 +8,8 @@
 """
 import allure
 from appium.webdriver.common.mobileby import MobileBy
-import sys
 
-sys.path.append('../')
+from utils.logger import log
 
 
 def handle_black(fun):
@@ -22,10 +21,8 @@ def handle_black(fun):
         :param kwargs:
         :return:
         """
-        black_list = [
-            "//android.widget.Button[@resource-id='com.google.android.apps.messaging:id/conversation_list_spam_popup_positive_button' and @text='OK']",
-            '//*[@resource-id="android:id/button1" and @text="OK"]'
-        ]
+        black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',
+                      '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']
         # 相当于self
         instance = args[0]
 
@@ -34,9 +31,7 @@ def handle_black(fun):
             return fun(*args, **kwargs)
         except Exception:
             # 使用allure打开截图
-            # allure.attach(instance.screenshot(), attachment_type=allure.attachment_type.PNG)
-            # 截图到本地
-            # instance.screenshot_as_file()
+            allure.attach(instance.screenshot(), attachment_type=allure.attachment_type.PNG)
             for i in black_list:
                 ele_path = instance.finds(MobileBy.XPATH, i)
                 if len(ele_path) > 0:
