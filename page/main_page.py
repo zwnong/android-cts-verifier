@@ -7,7 +7,8 @@
 
 """
 from base.base_page import BasePage
-from business.audio import Audio
+from page.audio.audioa_coustic_echo_cancellation_AEC_page import AudioAcousticEchoCancellationAECPage
+from page.clock.clock_alarms_and_timers_page import ClockAlarmsAndTimersPage
 
 
 class MainPage(BasePage):
@@ -22,4 +23,9 @@ class MainPage(BasePage):
         步骤 2 单击Yes按钮，再单击TEST
         """
         self.parse('main_page.yml', 'audio_acoustic_echo_cancellation_AEC')
-        return Audio.click_audio_acoustic_echo_cancellation_AEC(self.driver)
+        return AudioAcousticEchoCancellationAECPage(self.driver)
+
+    def clock_alarms_and_timers(self):
+        ele = self.swipe_find('main_page.yml', 'clock_alarms_and_timers')
+        self.find_and_click('xpath', ele)
+        return ClockAlarmsAndTimersPage(self.driver)

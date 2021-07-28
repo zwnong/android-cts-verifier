@@ -2,3 +2,6 @@ audio_acoustic_echo_cancellation_AEC:
   - action: find_and_click
     locator: xpath
     element: //*[@resource-id='android:id/text1' and @text='Audio Frequency Line Test']
+
+clock_alarms_and_timers:
+    - element: //*[@resource-id='android:id/text1' and @text='Alarms and Timers Tests']

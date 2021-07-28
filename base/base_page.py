@@ -48,6 +48,7 @@ class BasePage:
     def find_and_sendkeys(self, locator, element, value):
         return self.find(locator, element).send_keys(value)
 
+    @handle_black
     def finds(self, locator, value):
         return self.driver.find_elements(locator, value)
 
@@ -100,23 +101,22 @@ class BasePage:
         else:
             self.swipe_reight()
 
-    def swipe_find(self, locator, element, num=3):
-        """
-        # 上下滑动查找元素
-        :param element:
-        :param locator:
-        :param num: 滑动页数，默认为3页
-        :param num:
-        :return:
-        """
+    def swipe_find(self, yaml_path, fun_name, num=3):
+        with open(yaml_path, 'r+', encoding='utf-8') as f:
+            functance = yaml.load(f)
+        steps = functance.get(fun_name)
         for i in range(num):
-            # if i == num - 1:
-            #     raise NoSuchElementException(f'滑动{num}次，没找到元素')
+            if i == num - 1:
+                self.driver.implicitly_wait(5)
+                raise NoSuchElementException(f'滑动{num}次，没找到元素')
+
+            self.driver.implicitly_wait(1)
             try:
-                return self.parse(locator, element)
-            except Exception:
-                self.swipe_up()
-                return self.parse(locator, element)
+                element = self.driver.find_element(By.XPATH, steps.get('element'))
+                self.driver.implicitly_wait(5)
+                return element
+            except:
+                self.swipe_down()
 
     def parse(self, yaml_path, fun_name):
         """

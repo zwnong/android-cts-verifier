@@ -1,0 +1,29 @@
+yes:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='com.android.cts.verifier:id/audio_aec_mandatory_yes' and @text='YES']
+
+no:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='com.android.cts.verifier:id/audio_aec_mandatory_no' and @text='NO']
+
+TEST:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='com.android.cts.verifier:id/audio_aec_button_test' and @text='TEST']
+
+pass_button:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='com.android.cts.verifier:id/pass_button']
+
+fail_button:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='com.android.cts.verifier:id/fail_button']
+
+result_massage:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='com.android.cts.verifier:id/audio_aec_test_result' and @contains='All Tests Passed']

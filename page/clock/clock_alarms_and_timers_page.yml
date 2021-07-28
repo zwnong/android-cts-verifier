@@ -1,0 +1,34 @@
+alarm_show_alarms_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='android:id/text1' and @text='Show Alarms Test']
+
+alarm_set_alarm_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='android:id/text1' and @text='Set Alarm Test']
+
+alarm_start_alarm_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='android:id/text1' and @text='Start Alarm Test']
+
+alarm_full_alarm_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='android:id/text1' and @text='Full Alarm Test']
+
+timers_set_timer_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='android:id/text1' and @text='Set Timer Test']
+
+timer_start_timer_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='android:id/text1' and @text='Start Timer Test']
+
+timer_start_timer_with_ui_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id='android:id/text1' and @text='Start Timer With UI Test']
