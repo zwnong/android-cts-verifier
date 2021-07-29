@@ -1,0 +1,39 @@
+clock_alarms_and_timers_tests:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Alarms and Timers Tests"]
+
+audio_acoustic_echo_cancellation_AEC_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Audio Acoustic Echo Cancellation (AEC) Test"]
+
+MIDI_Test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="MIDI Test"]
+
+camera_bokeh:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Camera Bokeh"]
+
+camera_flashlight:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Camera Flashlight"]
+
+camera_performance:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Camera Performance"]
+
+car_dock_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Car Dock Test"]
+
+device_admin_tapjacking_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Device Admin Tapjacking Test"]

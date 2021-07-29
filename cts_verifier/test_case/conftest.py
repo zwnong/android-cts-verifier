@@ -16,11 +16,10 @@ import os
 import subprocess
 import signal
 import sys
-
+import pytest
 from utils.logger import log_init
 
 sys.path.append('..')
-import pytest
 
 
 @pytest.fixture(scope="module", autouse=True)  # scope="module"模块级别 autouse=True主动的运行

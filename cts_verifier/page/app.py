@@ -6,18 +6,18 @@
 @file: appo.py
 @time: 2021/3/4 0:49
 """
-from ui_framework.utils.get_file import GetFile
+from cts_verifier.page.main_page import MainPage
+from utils.get_file import GetFile
 from appium import webdriver
-from ui_framework.base.base_page import BasePage
-from ui_framework.xueqiu_app.page.main_page import MainPage
+from base.base_page import BasePage
 import sys
 sys.path.append('../')
 
 
 get_datas = GetFile(file_path=r'../datas/caps.yaml')
-desirecaps = get_datas.get_yaml_data('desirecaps')
-IP = get_datas.get_yaml_data('server')['IP']
-port = get_datas.get_yaml_data('server')['port']
+desirecaps = get_datas.get_value('desirecaps')
+IP = get_datas.get_value('server')['IP']
+port = get_datas.get_value('server')['port']
 
 
 class App(BasePage):
@@ -53,3 +53,6 @@ class App(BasePage):
 
     def implicitly_wait(self, time):
         return self.driver.implicitly_wait(time)
+
+    def click_back(self):
+        self.driver.keyevent(4)
