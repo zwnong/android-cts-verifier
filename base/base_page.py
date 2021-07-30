@@ -132,6 +132,7 @@ class BasePage:
         else:
             self.swipe_right()
 
+    @handle_black
     def swipe_find(self, function_name, num=10, file_path=None):
         """
         # 上下滑动查找元素
@@ -155,6 +156,7 @@ class BasePage:
                 self.driver.implicitly_wait(1)
                 try:
                     # 查找元素并点击
+                    # return self.find_and_click(MobileBy.XPATH,element.get('element'))
                     return self.driver.find_element(MobileBy.XPATH, element.get('element')).click()
 
                     # 仅返元素是否为真

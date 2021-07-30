@@ -21,7 +21,7 @@ def handle_black(fun):
         :param kwargs:
         :return:
         """
-        black_list = ['//*[@resource-id="android:id/button1"] and @text="OK"']
+        black_list = ['//*[@resource-id="android:id/button1" and @text="OK"]']
         # 相当于self
         instance = args[0]
 

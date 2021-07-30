@@ -1,0 +1,24 @@
+no_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/audio_aec_mandatory_no"]
+
+yes_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/audio_aec_mandatory_yes"]
+
+TEST_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/audio_aec_mandatory_yes"]
+
+pass_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/pass_button"]
+
+fail_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/fail_button"]

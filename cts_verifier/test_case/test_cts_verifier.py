@@ -20,10 +20,10 @@ class TestCtsVerifier:
         self.app.stop_android_driver()
 
     def setup(self):
-        pass
+        sleep(1)
 
     def teardown(self):
-        self.app.click_back()
+        pass
 
     def test_audioAcoustic_echo_cancellation_AEC_Test(self):
         """
@@ -31,7 +31,15 @@ class TestCtsVerifier:
         单击Yes按钮，再单击TEST
         :return:
         """
-        self.app.goto_main_page().audio_acoustic_echo_cancellation_AEC_test()
+        test = self.app.goto_main_page().audio_acoustic_echo_cancellation_AEC_test()
+        test.no_btn()
+        test.pass_btn()
+
+    def test_MIDI_Test(self):
+        """
+        直接点击pass
+        """
+        self.app.goto_main_page().MIDI_Test().pass_btn()
 
     def test_show_alarms(self):
         """

@@ -123,3 +123,4 @@ class MainPage(BasePage):
         """
         self.swipe_find('view_delete_instant_apps_test')
         return ViewDeleteInstantAppsTestPage(self.driver)
+

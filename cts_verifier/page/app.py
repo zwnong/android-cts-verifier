@@ -56,3 +56,4 @@ class App(BasePage):
 
     def click_back(self):
         self.driver.keyevent(4)
+
