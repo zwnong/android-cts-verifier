@@ -132,14 +132,18 @@ class BasePage:
         else:
             self.swipe_right()
 
-    def swipe_find(self, function_name, num=5):
+    def swipe_find(self, function_name, num=10, file_path=None):
         """
         # 上下滑动查找元素
+        :param file_path:
         :param function_name:
         :param num:
         :return:
         """
-        file_path = fr'{self.father_path()}\yaml\main_page.yml'
+        if file_path is None:
+            file_path = fr'{self.father_path()}\yaml\main_page.yml'
+        else:
+            file_path = file_path
         get_file = GetFile(file_path)
         elements = get_file.get_value(function_name)
         for element in elements:

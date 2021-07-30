@@ -1,12 +1,12 @@
-clock_alarms_and_timers_tests:
-  - action: find_and_click
-    locator: xpath
-    element: //*[@resource-id="android:id/text1" and @text="Alarms and Timers Tests"]
-
 audio_acoustic_echo_cancellation_AEC_test:
   - action: find_and_click
     locator: xpath
     element: //*[@resource-id="android:id/text1" and @text="Audio Acoustic Echo Cancellation (AEC) Test"]
+
+clock_alarms_and_timers_tests:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Alarms and Timers Tests"]
 
 MIDI_Test:
   - action: find_and_click
@@ -37,3 +37,29 @@ device_admin_tapjacking_test:
   - action: find_and_click
     locator: xpath
     element: //*[@resource-id="android:id/text1" and @text="Device Admin Tapjacking Test"]
+
+device_admin_uninstall_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Device Admin Uninstall Test"]
+
+Screen_lock_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Screen Lock Test"]
+
+instant_apps_notification_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Instant Apps Notification Test"]
+
+instant_apps_recents_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="Instant Apps Recents Test"]
+
+view_delete_instant_apps_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="View/Delete Instant Apps Test"]
+

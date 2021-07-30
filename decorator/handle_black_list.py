@@ -21,8 +21,7 @@ def handle_black(fun):
         :param kwargs:
         :return:
         """
-        black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',
-                      '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']
+        black_list = ['//*[@resource-id="android:id/button1"] and @text="OK"']
         # 相当于self
         instance = args[0]
 
