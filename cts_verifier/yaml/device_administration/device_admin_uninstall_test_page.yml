@@ -1,0 +1,14 @@
+enable_admin:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/enable_device_admin_button" and @text="ENABLE ADMIN"]
+
+launch_settings:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/enable_device_admin_button" and @text="LAUNCH SETTINGS"]
+
+pass_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/pass_button"]

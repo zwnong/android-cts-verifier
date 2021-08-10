@@ -15,11 +15,12 @@
 import os
 import subprocess
 import signal
-import sys
 import pytest
-from utils.logger import log_init
+import sys
 
-sys.path.append('..')
+print(sys.path.append(fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + "..")}'))
+
+from utils.logger import log_init
 
 
 @pytest.fixture(scope="module", autouse=True)  # scope="module"模块级别 autouse=True主动的运行
@@ -30,7 +31,7 @@ def record():
     """
     # 用例运行前
     log_init()
-    cmd = "scrcpy -Nr result/record/record.mp4"
+    cmd = "scrcpy -Nr d:/record.mp4"
     p = subprocess.Popen(cmd, shell=True)
     yield  # fixture的一个特点 分割用例运行前后
     # 用例运行后

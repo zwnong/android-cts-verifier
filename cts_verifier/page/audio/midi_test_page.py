@@ -12,6 +12,6 @@ from base.base_page import BasePage
 class MidiTestPage(BasePage):
     def pass_btn(self):
         """
-        :return:点击NO按钮
+        :return:点击YES按钮
         """
         self.parse(fr'{self.father_path()}\yaml\audio\audio_acoustic_echo_cancellation_AEC_test_page.yml', 'pass_btn')

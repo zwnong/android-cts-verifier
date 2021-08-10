@@ -7,6 +7,7 @@
 @time: 2021/3/9 21:52
 """
 import os
+from time import sleep
 
 import yaml
 from appium.webdriver.common.mobileby import MobileBy
@@ -113,14 +114,14 @@ class BasePage:
         x1 = self.get_size()[0] / 2
         y1 = self.get_size()[1] / 10 * 9
         y = self.get_size()[1] / 10
-        self.driver.swipe(x1, y1, x1, y, 1000)
+        self.driver.swipe(x1, y1, x1, y, 2000)
 
     # 向下滑动
     def swipe_down(self):
         x1 = self.get_size()[0] / 2
         y1 = self.get_size()[1] / 10
         y = self.get_size()[1] / 10 * 9
-        self.driver.swipe(x1, y1, x1, y, 1000)
+        self.driver.swipe(x1, y1, x1, y, 2000)
 
     def swipe_on(self, direction=None):
         if direction == 'up':
@@ -199,8 +200,6 @@ class BasePage:
             driver.find_element_by_id('cn.com.open.mooc:id/left_icon').click()
             raise e
 
-    def page_source(self):
-        return self.driver.page_source
 
     def pwd_path(self):
         return os.getcwd()
@@ -215,3 +214,36 @@ class BasePage:
 
     def get_yml_value(self, file_path, *args):
         return GetFile(file_path=file_path).get_value(args)
+
+    def isElement(self, locator, ele):
+        """
+        Determine whether elements exist
+        Usage:
+        isElement(By.XPATH,"//a")
+        """
+        sleep(1)
+        flag = None
+        try:
+            if locator == "id":
+                # self.driver.implicitly_wait(60)
+                self.driver.find_element_by_id(ele)
+            elif locator == "xpath":
+                # self.driver.implicitly_wait(60)
+                self.driver.find_element_by_xpath(ele)
+            elif locator == "class":
+                self.driver.find_element_by_class_name(ele)
+            elif locator == "link text":
+                self.driver.find_element_by_link_text(ele)
+            elif locator == "partial link text":
+                self.driver.find_element_by_partial_link_text(ele)
+            elif locator == "name":
+                self.driver.find_element_by_name(ele)
+            elif locator == "tag name":
+                self.driver.find_element_by_tag_name(ele)
+            elif locator == "css selector":
+                self.driver.find_element_by_css_selector(ele)
+            flag = True
+        except NoSuchElementException as e:
+            flag = False
+        finally:
+            return flag

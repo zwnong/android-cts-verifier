@@ -1,0 +1,4 @@
+click_enable_car_mode:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/car_mode" and @text="ENABLE CAR MODE"]

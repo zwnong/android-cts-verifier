@@ -1,14 +1,15 @@
 desirecaps:
   platformName: Android
-  automationName: UiAutomator2
-  deviceName: DVKS232D20110300016
+  # automationName: UiAutomator2
+  deviceName: "52848953948680"
   appPackage:  com.android.cts.verifier
   appActivity: com.android.cts.verifier.CtsVerifierActivity
   # 跳过安装uiautomator2 服务
-  skipServerInstallation: True
+  # skipServerInstallation: True
   # 跳过初始化
-  skipDeviceInstallation: True
+#  skipDeviceInstallation: True
   settings[waitForIdleTimeout]: 1
+  newCommandTimeout: 2000
   noReset: True
 
 server:

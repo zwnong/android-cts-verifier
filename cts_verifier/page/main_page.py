@@ -18,6 +18,7 @@ from cts_verifier.page.device_administaration.device_admin_tapjacking_test_page 
 from cts_verifier.page.device_administaration.device_admin_uninstall_test_page import DeviceAdminUninstallTestPage
 from cts_verifier.page.audio.audio_acoustic_echo_cancellation_AEC_test_page import \
     AudioAcousticEchoCancellationAECTestPage
+from cts_verifier.page.displaycutout.display_cutout_test_page import DisplayCutoutTestPage
 from cts_verifier.page.instant_apps.instant_apps_notification_test_page import InstantAppsNotificationTestPage
 from cts_verifier.page.instant_apps.instant_apps_recents_test_page import InstantAppsRecentsTestPage
 from cts_verifier.page.instant_apps.view_delete_instant_apps_test_page import ViewDeleteInstantAppsTestPage
@@ -37,7 +38,7 @@ class MainPage(BasePage):
         """
         :return:进入MIDI Test 页面
         """
-        self.parse(fr'{self.father_path()}\yaml\main_page.yml', 'MIDI_Test')
+        self.swipe_find('MIDI_Test')
         return MidiTestPage(self.driver)
 
     # 3 - CAMERA------------------------------------------------------------------------------------
@@ -60,7 +61,7 @@ class MainPage(BasePage):
         """
         :return: 进入Camera Performance测试页
         """
-        self.swipe_find('camera_flashlight')
+        self.swipe_find('camera_performance')
         return CameraPerformancePage(self.driver)
 
     # 4 - car---------------------------------------------------------------------------------------
@@ -77,7 +78,6 @@ class MainPage(BasePage):
         :return:进入 Alarms and Timers Tests测试项
         """
         self.swipe_find('clock_alarms_and_timers_tests')
-        # self.parse(fr'{self.father_path()}\yaml\main_page.yml', 'clock_alarms_and_timers_tests')
         return AlarmAndTimersTestsPage(self.driver)
 
     # 6 - Device Administration----------------------------------------------------------------------
@@ -102,6 +102,14 @@ class MainPage(BasePage):
         self.swipe_find('Screen_lock_test')
         return ScreenLockTestPage(self.driver)
 
+    # 7 - Displaycutout----------------------------------------------------------------------
+    def display_cutout_test(self):
+        """
+        :return:进入display_cutout_test测试
+        """
+        self.swipe_find('display_cutout_test')
+        return DisplayCutoutTestPage(self.driver)
+
     # 10 - INSTANT APPS----------------------------------------------------------------------
     def instant_apps_notification_test(self):
         """
@@ -124,3 +132,4 @@ class MainPage(BasePage):
         self.swipe_find('view_delete_instant_apps_test')
         return ViewDeleteInstantAppsTestPage(self.driver)
 
+    # 10 - INSTANT APPS----------------------------------------------------------------------

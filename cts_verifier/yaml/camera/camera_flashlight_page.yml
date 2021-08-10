@@ -1,0 +1,34 @@
+start_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/flash_instruction_button" and @text="START"]
+
+on_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/flash_on_button"]
+
+off_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/flash_off_button"]
+
+next_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/flash_instruction_button" and @text="NEXT"]
+
+pass_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/pass_button"]
+
+fail_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/fail_button"]
+
+done_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/flash_instruction_button"  and @text="DONE"]

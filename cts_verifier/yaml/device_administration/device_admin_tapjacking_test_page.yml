@@ -1,0 +1,9 @@
+click_enable_device_admin:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/enable_admin_overlay_button" and @text="ENABLE DEVICE ADMIN"]
+
+pass_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/pass_button"]

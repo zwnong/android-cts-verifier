@@ -10,4 +10,14 @@ from base.base_page import BasePage
 
 
 class DeviceAdminTapjackingTestPage(BasePage):
-    pass
+    def click_enable_device_admin(self):
+        """
+        :return:单击ENABLE DEVICE ADMIN
+        """
+        self.parse(fr'{self.father_path()}\yaml\device_administration\device_admin_tapjacking_test_page.yml', 'click_enable_device_admin')
+
+    def pass_btn(self):
+        """
+        :return点击pass
+        """
+        self.parse(fr'{self.father_path()}\yaml\device_administration\device_admin_tapjacking_test_page.yml', 'pass_btn')

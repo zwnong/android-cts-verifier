@@ -12,6 +12,7 @@ python 的logging 没有任何功能  需要添加功能（句柄）
 """
 import logging
 import logging.handlers
+import os
 import time
 
 
@@ -27,7 +28,8 @@ def log_init():
 
     # 加入输出到文件的句柄
     t = time.strftime("%Y%m%d_%H%M%S", time.localtime())
-    h = logging.handlers.RotatingFileHandler(f"./result/log/{t}.log", mode='a', encoding="utf-8")
+    log_path = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + "..")}\python_logs'
+    h = logging.handlers.RotatingFileHandler(fr"{log_path}\{t}.log", mode='a', encoding="utf-8")
 
     h.setFormatter(format_str)
 

@@ -1,0 +1,54 @@
+click_test_single_capture:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testSingleCapture"]
+
+click_test_reprocessing_latency:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testReprocessingLatency"]
+
+click_test_reprocessing_capture_stall:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testReprocessingCaptureStall"]
+
+click_test_legacy_api_performance:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testLegacyApiPerformance"]
+
+click_test_high_quality_reprocessing_latency:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testHighQualityReprocessingLatency"]
+
+click_test_reprocessing_throughput:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testReprocessingThroughput"]
+
+click_test_high_quality_reprocessing_throughput:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testHighQualityReprocessingThroughput"]
+
+click_test_multiple_capture:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testMultipleCapture"]
+
+click_test_camera_launch:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="testCameraLaunch"]
+
+pass_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/pass_button"]
+
+fail_btn:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.cts.verifier:id/fail_button"]

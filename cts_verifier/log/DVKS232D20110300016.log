@@ -1,0 +1,15 @@
+2021-08-10 07:39:03:444 [Appium] Welcome to Appium v1.21.0
+2021-08-10 07:39:03:445 [Appium] Non-default server args:
+2021-08-10 07:39:03:446 [Appium]   port: 4724
+2021-08-10 07:39:03:446 [Appium]   bootstrapPort: 4923
+2021-08-10 07:39:03:446 [Appium]   sessionOverride: true
+2021-08-10 07:39:03:447 [Appium]   logFile: D:\ui_framework\cts_verifier\log\DVKS232D20110300016.log
+2021-08-10 07:39:03:447 [Appium]   udid: DVKS232D20110300016
+2021-08-10 07:39:03:447 [Appium]   noReset: true
+2021-08-10 07:39:03:448 [Appium] Deprecated server args:
+2021-08-10 07:39:03:448 [Appium]   -U => --default-capabilities
+2021-08-10 07:39:03:448 [Appium]   --no-reset => --default-capabilities
+2021-08-10 07:39:03:448 [Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
+2021-08-10 07:39:03:448 [Appium]   udid: DVKS232D20110300016
+2021-08-10 07:39:03:449 [Appium]   noReset: true
+2021-08-10 07:39:03:481 [Appium] Appium REST http interface listener started on 0.0.0.0:4724

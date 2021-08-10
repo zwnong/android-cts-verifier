@@ -48,6 +48,11 @@ Screen_lock_test:
     locator: xpath
     element: //*[@resource-id="android:id/text1" and @text="Screen Lock Test"]
 
+display_cutout_test:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/text1" and @text="DisplayCutout Test"]
+
 instant_apps_notification_test:
   - action: find_and_click
     locator: xpath

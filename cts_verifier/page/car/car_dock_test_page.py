@@ -10,4 +10,9 @@ from base.base_page import BasePage
 
 
 class CarDockTestPage(BasePage):
-    pass
+    def click_enable_car_mode(self):
+        """
+        点击单击Enable Car Mode按钮
+        :return:
+        """
+        self.parse(fr'{self.father_path()}\yaml\car\enable_car_mode_page.yml', 'click_enable_car_mode')
