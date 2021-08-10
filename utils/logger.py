@@ -22,7 +22,7 @@ def log_init():
 
     format_str = logging.Formatter(log_format_str)
 
-    # 根据 log 标识获取 log
+    # 根据 appium_log 标识获取 appium_log
 
     root = logging.getLogger("my_log")
 

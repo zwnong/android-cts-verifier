@@ -31,7 +31,7 @@ class BasePage:
         :param element: 元素信息
         :return:
         """
-        # log.debug('find' + element)
+        # appium_log.debug('find' + element)
         return WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element(locator, element))
         # return self.driver.find_element(locator, element)
         # black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',

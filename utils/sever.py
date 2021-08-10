@@ -54,7 +54,7 @@ class Server:
         appium_port_list = self.create_port_list(4723)  # 传入start_port,生成p端口列表
         bootstrap_port_list = self.create_port_list(4923)  # 生成bp端口列表
         devices_list = self.device_list  # 获取设备信息列表
-        log_name = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".")}\log\{devices_list[i]}'
+        log_name = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".")}\appium_log\{devices_list[i]}'
         # for i in range(len(devices_list)):
         # 拼接命令
         command = "appium -p " + str(appium_port_list[i]) + " -bp " + str(bootstrap_port_list[i]) + " -U " + str(

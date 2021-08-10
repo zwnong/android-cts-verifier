@@ -26,7 +26,7 @@ def handle_black(fun):
         instance = args[0]
 
         try:
-            # log.debug('finds' + instance[2])
+            # appium_log.debug('finds' + instance[2])
             return fun(*args, **kwargs)
         except Exception:
             # 使用allure打开截图
