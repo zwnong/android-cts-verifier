@@ -36,7 +36,7 @@ class App(BasePage):
             "com.android.cts.verifier",
             "com.android.cts.verifier.CtsVerifierActivity",
             cts_port
-            )
+        )
         return self
 
     def start_android_settings_driver(self):
@@ -52,7 +52,7 @@ class App(BasePage):
             "com.android.settings.Settings",
             settings_port,
             5000
-            )
+        )
 
     def goto_cts_main_page(self):
         return MainPage(self.cts_driver)
@@ -79,11 +79,29 @@ class App(BasePage):
         return self.cts_driver.page_source
 
     def find_elements(self, element):
-        mess = self.cts_driver.find_elements(By.XPATH, element)
-        return mess
+        msg = self.cts_driver.find_elements(By.XPATH, element)
+        return msg
+
+    def camera_performance_page_opinion(self, time):
+        """
+        camera_performance页面用例运行等待完成后的处理
+        :return:
+        """
+        for i in range(100):
+            sleep(time)
+            n = len(self.find_elements(
+                '//*[@resource-id="android:id/message" and @text="Running CTS performance test case..."]'))
+            if n == 0 and 'testSingleCapture' in self.cts_page_source():
+                break
+            else:
+                self.click_back()
+        self.click_back()
 
     def tap_screen(self, x, y):
         self.cts_driver.tap([(x, y)], 5)
+
+    def cts_driver_restart(self):
+        self.cts_driver.launch_app()
 
     def isElement(self, locator, ele):
         """

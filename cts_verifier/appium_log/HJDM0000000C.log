@@ -1,15 +1,201 @@
-2021-08-10 07:39:03:076 [Appium] Welcome to Appium v1.21.0
-2021-08-10 07:39:03:077 [Appium] Non-default server args:
-2021-08-10 07:39:03:079 [Appium]   port: 4725
-2021-08-10 07:39:03:079 [Appium]   bootstrapPort: 4924
-2021-08-10 07:39:03:080 [Appium]   sessionOverride: true
-2021-08-10 07:39:03:080 [Appium]   logFile: D:\ui_framework\cts_verifier\log\HJDM0000000C.log
-2021-08-10 07:39:03:080 [Appium]   udid: HJDM0000000C
-2021-08-10 07:39:03:080 [Appium]   noReset: true
-2021-08-10 07:39:03:081 [Appium] Deprecated server args:
-2021-08-10 07:39:03:081 [Appium]   -U => --default-capabilities
-2021-08-10 07:39:03:082 [Appium]   --no-reset => --default-capabilities
-2021-08-10 07:39:03:082 [Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
-2021-08-10 07:39:03:082 [Appium]   udid: HJDM0000000C
-2021-08-10 07:39:03:082 [Appium]   noReset: true
-2021-08-10 07:39:03:115 [Appium] Appium REST http interface listener started on 0.0.0.0:4725
+2021-08-11 02:00:52:234 [Appium] Welcome to Appium v1.21.0
+2021-08-11 02:00:52:235 [Appium] Non-default server args:
+2021-08-11 02:00:52:235 [Appium]   bootstrapPort: 4924
+2021-08-11 02:00:52:236 [Appium]   sessionOverride: true
+2021-08-11 02:00:52:236 [Appium]   logFile: D:\ui_framework\cts_verifier\appium_log\HJDM0000000C.log
+2021-08-11 02:00:52:236 [Appium]   udid: HJDM0000000C
+2021-08-11 02:00:52:236 [Appium]   noReset: true
+2021-08-11 02:00:52:237 [Appium] Deprecated server args:
+2021-08-11 02:00:52:237 [Appium]   -U => --default-capabilities
+2021-08-11 02:00:52:238 [Appium]   --no-reset => --default-capabilities
+2021-08-11 02:00:52:238 [Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
+2021-08-11 02:00:52:238 [Appium]   udid: HJDM0000000C
+2021-08-11 02:00:52:238 [Appium]   noReset: true
+2021-08-11 02:00:52:274 [Appium] Appium REST http interface listener started on 0.0.0.0:4723
+2021-08-11 02:01:09:619 [HTTP] Request idempotency key: cf6e000d-0454-40c5-a4a0-050f2d2678e3
+2021-08-11 02:01:09:654 [HTTP] --> POST /wd/hub/session
+2021-08-11 02:01:09:655 [HTTP] {"capabilities":{"firstMatch":[{"platformName":"Android","appium:deviceName":"DVKS232D20110300016","appium:appPackage":"com.android.cts.verifier","appium:appActivity":"com.android.cts.verifier.CtsVerifierActivity","appium:settings[waitForIdleTimeout]":1,"appium:newCommandTimeout":2000,"appium:noReset":true}]},"desiredCapabilities":{"platformName":"Android","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","settings[waitForIdleTimeout]":1,"newCommandTimeout":2000,"noReset":true}}
+2021-08-11 02:01:09:656 [W3C] Calling AppiumDriver.createSession() with args: [{"platformName":"Android","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","settings[waitForIdleTimeout]":1,"newCommandTimeout":2000,"noReset":true},null,{"firstMatch":[{"platformName":"Android","appium:deviceName":"DVKS232D20110300016","appium:appPackage":"com.android.cts.verifier","appium:appActivity":"com.android.cts.verifier.CtsVerifierActivity","appium:settings[waitForIdleTimeout]":1,"appium:newCommandTimeout":2000,"appium:noReset":true}]}]
+2021-08-11 02:01:09:658 [BaseDriver] Event 'newSessionRequested' logged at 1628647269657 (10:01:09 GMT+0800 (中国标准时间))
+2021-08-11 02:01:09:662 [BaseDriver] The following capabilities are not standard capabilities and should have an extension prefix:
+2021-08-11 02:01:09:662 [BaseDriver]   udid
+2021-08-11 02:01:09:667 [Appium] 
+2021-08-11 02:01:09:667 [Appium] ======================================================================
+2021-08-11 02:01:09:667 [Appium]   DEPRECATION WARNING:
+2021-08-11 02:01:09:668 [Appium] 
+2021-08-11 02:01:09:668 [Appium]   The 'automationName' capability was not provided in the desired 
+2021-08-11 02:01:09:668 [Appium]   capabilities for this Android session
+2021-08-11 02:01:09:668 [Appium] 
+2021-08-11 02:01:09:668 [Appium]   Setting 'automationName=UiAutomator2' by default and using the 
+2021-08-11 02:01:09:669 [Appium]   UiAutomator2 Driver
+2021-08-11 02:01:09:669 [Appium] 
+2021-08-11 02:01:09:669 [Appium]   The next major version of Appium (2.x) will **require** the 
+2021-08-11 02:01:09:669 [Appium]   'automationName' capability to be set for all sessions on all 
+2021-08-11 02:01:09:669 [Appium]   platforms
+2021-08-11 02:01:09:669 [Appium] 
+2021-08-11 02:01:09:670 [Appium]   In previous versions (Appium <= 1.13.x), the default was 
+2021-08-11 02:01:09:670 [Appium]   'automationName=UiAutomator1'
+2021-08-11 02:01:09:670 [Appium] 
+2021-08-11 02:01:09:670 [Appium]   If you wish to use that automation instead of UiAutomator2, please 
+2021-08-11 02:01:09:670 [Appium]   add 'automationName=UiAutomator1' to your desired capabilities
+2021-08-11 02:01:09:670 [Appium] 
+2021-08-11 02:01:09:671 [Appium]   For more information about drivers, please visit 
+2021-08-11 02:01:09:671 [Appium]   http://appium.io/docs/en/about-appium/intro/ and explore the 
+2021-08-11 02:01:09:671 [Appium]   'Drivers' menu
+2021-08-11 02:01:09:671 [Appium] 
+2021-08-11 02:01:09:671 [Appium] ======================================================================
+2021-08-11 02:01:09:671 [Appium] 
+2021-08-11 02:01:10:175 [Appium] Appium v1.21.0 creating new AndroidUiautomator2Driver (v1.65.0) session
+2021-08-11 02:01:10:176 [Appium] There are no active sessions for cleanup
+2021-08-11 02:01:10:180 [BaseDriver] W3C capabilities and MJSONWP desired capabilities were provided
+2021-08-11 02:01:10:180 [BaseDriver] Creating session with W3C capabilities: {
+2021-08-11 02:01:10:180 [BaseDriver]   "alwaysMatch": {
+2021-08-11 02:01:10:180 [BaseDriver]     "platformName": "Android",
+2021-08-11 02:01:10:180 [BaseDriver]     "appium:udid": "HJDM0000000C",
+2021-08-11 02:01:10:180 [BaseDriver]     "appium:deviceName": "DVKS232D20110300016",
+2021-08-11 02:01:10:181 [BaseDriver]     "appium:appPackage": "com.android.cts.verifier",
+2021-08-11 02:01:10:181 [BaseDriver]     "appium:appActivity": "com.android.cts.verifier.CtsVerifierActivity",
+2021-08-11 02:01:10:181 [BaseDriver]     "appium:newCommandTimeout": 2000,
+2021-08-11 02:01:10:181 [BaseDriver]     "appium:noReset": true
+2021-08-11 02:01:10:181 [BaseDriver]   },
+2021-08-11 02:01:10:181 [BaseDriver]   "firstMatch": [
+2021-08-11 02:01:10:181 [BaseDriver]     {}
+2021-08-11 02:01:10:181 [BaseDriver]   ]
+2021-08-11 02:01:10:182 [BaseDriver] }
+2021-08-11 02:01:10:193 [BaseDriver] Session created with session id: 5c5e1ccc-b45a-49f4-a4b9-0da1fe1ab45c
+2021-08-11 02:01:10:193 [UiAutomator2] Starting 'com.android.cts.verifier' directly on the device
+2021-08-11 02:01:10:210 [ADB] Found 1 'build-tools' folders under 'D:\Program Files\Android\SDK' (newest first):
+2021-08-11 02:01:10:211 [ADB]     D:/Program Files/Android/SDK/build-tools/30.0.3
+2021-08-11 02:01:10:211 [ADB] Using 'adb.exe' from 'D:\Program Files\Android\SDK\platform-tools\adb.exe'
+2021-08-11 02:01:10:212 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 start-server'
+2021-08-11 02:01:10:289 [AndroidDriver] Retrieving device list
+2021-08-11 02:01:10:289 [ADB] Trying to find a connected android device
+2021-08-11 02:01:10:290 [ADB] Getting connected devices
+2021-08-11 02:01:10:342 [ADB] Connected devices: [{"udid":"HJDM0000000C","state":"device"}]
+2021-08-11 02:01:10:343 [AndroidDriver] Using device: HJDM0000000C
+2021-08-11 02:01:10:344 [ADB] Using 'adb.exe' from 'D:\Program Files\Android\SDK\platform-tools\adb.exe'
+2021-08-11 02:01:10:344 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 start-server'
+2021-08-11 02:01:10:400 [ADB] Setting device id to HJDM0000000C
+2021-08-11 02:01:10:401 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell getprop ro.build.version.sdk'
+2021-08-11 02:01:10:496 [ADB] Current device property 'ro.build.version.sdk': 30
+2021-08-11 02:01:10:496 [ADB] Getting device platform version
+2021-08-11 02:01:10:497 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell getprop ro.build.version.release'
+2021-08-11 02:01:10:615 [ADB] Current device property 'ro.build.version.release': 11
+2021-08-11 02:01:10:615 [ADB] Device API level: 30
+2021-08-11 02:01:10:615 [UiAutomator2] Relaxing hidden api policy
+2021-08-11 02:01:10:615 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell 'settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1''
+2021-08-11 02:01:10:875 [AndroidDriver] No app sent in, not parsing package/activity
+2021-08-11 02:01:10:876 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C wait-for-device'
+2021-08-11 02:01:10:971 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell echo ping'
+2021-08-11 02:01:11:051 [AndroidDriver] Pushing settings apk to device...
+2021-08-11 02:01:11:052 [ADB] Getting install status for io.appium.settings
+2021-08-11 02:01:11:052 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell dumpsys package io.appium.settings'
+2021-08-11 02:01:11:174 [ADB] 'io.appium.settings' is installed
+2021-08-11 02:01:11:175 [ADB] Getting package info for 'io.appium.settings'
+2021-08-11 02:01:11:176 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell dumpsys package io.appium.settings'
+2021-08-11 02:01:11:328 [ADB] The version name of the installed 'io.appium.settings' is greater or equal to the application version name ('3.3.0' >= '3.3.0')
+2021-08-11 02:01:11:328 [ADB] There is no need to install/upgrade 'C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\io.appium.settings\apks\settings_apk-debug.apk'
+2021-08-11 02:01:11:329 [ADB] Getting IDs of all 'io.appium.settings' processes
+2021-08-11 02:01:11:329 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell 'pgrep --help; echo $?''
+2021-08-11 02:01:11:441 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell pgrep -f \(\[\[:blank:\]\]\|\^\)io\.appium\.settings\(\[\[:blank:\]\]\|\$\)'
+2021-08-11 02:01:11:646 [AndroidDriver] io.appium.settings is already running. There is no need to reset its permissions.
+2021-08-11 02:01:11:648 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell appops set io.appium.settings android:mock_location allow'
+2021-08-11 02:01:11:809 [Logcat] Starting logs capture with command: 'D:\\Program Files\\Android\\SDK\\platform-tools\\adb.exe' -P 5037 -s HJDM0000000C logcat -v threadtime
+2021-08-11 02:01:12:342 [UiAutomator2] Forwarding UiAutomator2 Server port 6790 to local port 8200
+2021-08-11 02:01:12:342 [ADB] Forwarding system: 8200 to device: 6790
+2021-08-11 02:01:12:342 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C forward tcp:8200 tcp:6790'
+2021-08-11 02:01:12:407 [ADB] Getting install status for io.appium.uiautomator2.server
+2021-08-11 02:01:12:407 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell dumpsys package io.appium.uiautomator2.server'
+2021-08-11 02:01:12:527 [ADB] 'io.appium.uiautomator2.server' is installed
+2021-08-11 02:01:12:527 [ADB] Getting package info for 'io.appium.uiautomator2.server'
+2021-08-11 02:01:12:527 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell dumpsys package io.appium.uiautomator2.server'
+2021-08-11 02:01:12:642 [ADB] The version name of the installed 'io.appium.uiautomator2.server' is greater or equal to the application version name ('4.21.1' >= '4.21.1')
+2021-08-11 02:01:12:642 [UiAutomator2] io.appium.uiautomator2.server installation state: sameVersionInstalled
+2021-08-11 02:01:12:642 [ADB] Checking app cert for C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.21.1.apk
+2021-08-11 02:01:12:645 [ADB] Using 'apksigner.jar' from 'D:\Program Files\Android\SDK\build-tools\30.0.3\lib\apksigner.jar'
+2021-08-11 02:01:12:645 [ADB] Starting apksigner: 'D:\\Program Files (x86)\\Java\\jdk1.8.0_291\\bin\\java.exe' -Xmx1024M -Xss1m -jar 'D:\\Program Files\\Android\\SDK\\build-tools\\30.0.3\\lib\\apksigner.jar' verify --print-certs C:\\Users\\A1-0572\\AppData\\Roaming\\npm\\node_modules\\appium\\node_modules\\appium-uiautomator2-server\\apks\\appium-uiautomator2-server-v4.21.1.apk
+2021-08-11 02:01:13:164 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2021-08-11 02:01:13:164 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2021-08-11 02:01:13:164 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2021-08-11 02:01:13:164 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2021-08-11 02:01:13:164 [ADB] 
+2021-08-11 02:01:13:165 [ADB] sha256 hash did match for 'appium-uiautomator2-server-v4.21.1.apk'
+2021-08-11 02:01:13:165 [ADB] 'C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.21.1.apk' is signed with the default certificate
+2021-08-11 02:01:13:165 [ADB] Getting install status for io.appium.uiautomator2.server.test
+2021-08-11 02:01:13:165 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell dumpsys package io.appium.uiautomator2.server.test'
+2021-08-11 02:01:13:282 [ADB] 'io.appium.uiautomator2.server.test' is installed
+2021-08-11 02:01:13:282 [ADB] Checking app cert for C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-debug-androidTest.apk
+2021-08-11 02:01:13:284 [ADB] Starting apksigner: 'D:\\Program Files (x86)\\Java\\jdk1.8.0_291\\bin\\java.exe' -Xmx1024M -Xss1m -jar 'D:\\Program Files\\Android\\SDK\\build-tools\\30.0.3\\lib\\apksigner.jar' verify --print-certs C:\\Users\\A1-0572\\AppData\\Roaming\\npm\\node_modules\\appium\\node_modules\\appium-uiautomator2-server\\apks\\appium-uiautomator2-server-debug-androidTest.apk
+2021-08-11 02:01:13:715 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2021-08-11 02:01:13:715 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2021-08-11 02:01:13:716 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2021-08-11 02:01:13:716 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2021-08-11 02:01:13:716 [ADB] 
+2021-08-11 02:01:13:716 [ADB] sha256 hash did match for 'appium-uiautomator2-server-debug-androidTest.apk'
+2021-08-11 02:01:13:716 [ADB] 'C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-debug-androidTest.apk' is signed with the default certificate
+2021-08-11 02:01:13:717 [UiAutomator2] Server packages are not going to be (re)installed
+2021-08-11 02:01:13:719 [UiAutomator2] Waiting up to 30000ms for services to be available
+2021-08-11 02:01:13:720 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell pm list instrumentation'
+2021-08-11 02:01:13:854 [UiAutomator2] Instrumentation target 'io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner' is available
+2021-08-11 02:01:13:861 [ADB] Adding packages ["io.appium.settings","io.appium.uiautomator2.server","io.appium.uiautomator2.server.test"] to Doze whitelist
+2021-08-11 02:01:13:862 [ADB] Got the following command chunks to execute: [["dumpsys","deviceidle","whitelist","+io.appium.settings",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server.test",";"]]
+2021-08-11 02:01:13:862 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell dumpsys deviceidle whitelist +io.appium.settings ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server.test ;'
+2021-08-11 02:01:14:065 [UiAutomator2] No app capability. Assuming it is already on the device
+2021-08-11 02:01:14:066 [UiAutomator2] Performing shallow cleanup of automation leftovers
+2021-08-11 02:01:14:139 [UiAutomator2] The following obsolete sessions are still running: [null]
+2021-08-11 02:01:14:140 [UiAutomator2] Cleaning up the obsolete sessions
+2021-08-11 02:01:15:180 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell am force-stop io.appium.uiautomator2.server.test'
+2021-08-11 02:01:15:348 [UiAutomator2] Starting UIAutomator2 server 4.21.1
+2021-08-11 02:01:15:348 [UiAutomator2] Using UIAutomator2 server from 'C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.21.1.apk' and test from 'C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-debug-androidTest.apk'
+2021-08-11 02:01:15:349 [UiAutomator2] Waiting up to 30000ms for UiAutomator2 to be online...
+2021-08-11 02:01:15:350 [ADB] Creating ADB subprocess with args: ["-P",5037,"-s","HJDM0000000C","shell","am","instrument","-w","-e","disableAnalytics",true,"io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner"]
+2021-08-11 02:01:15:391 [WD Proxy] Matched '/status' to command name 'getStatus'
+2021-08-11 02:01:15:392 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2021-08-11 02:01:15:401 [WD Proxy] socket hang up
+2021-08-11 02:01:16:402 [WD Proxy] Matched '/status' to command name 'getStatus'
+2021-08-11 02:01:16:403 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2021-08-11 02:01:16:412 [WD Proxy] socket hang up
+2021-08-11 02:01:17:413 [WD Proxy] Matched '/status' to command name 'getStatus'
+2021-08-11 02:01:17:414 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2021-08-11 02:01:17:423 [WD Proxy] socket hang up
+2021-08-11 02:01:17:448 [Instrumentation] io.appium.uiautomator2.server.test.AppiumUiAutomator2Server:
+2021-08-11 02:01:18:425 [WD Proxy] Matched '/status' to command name 'getStatus'
+2021-08-11 02:01:18:425 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2021-08-11 02:01:18:434 [WD Proxy] socket hang up
+2021-08-11 02:01:19:436 [WD Proxy] Matched '/status' to command name 'getStatus'
+2021-08-11 02:01:19:436 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2021-08-11 02:01:19:589 [WD Proxy] Got response with status 200: {"sessionId":"None","value":{"message":"UiAutomator2 Server is ready to accept commands","ready":true}}
+2021-08-11 02:01:19:590 [UiAutomator2] The initialization of the instrumentation process took 4241ms
+2021-08-11 02:01:19:591 [WD Proxy] Matched '/session' to command name 'createSession'
+2021-08-11 02:01:19:592 [WD Proxy] Proxying [POST /session] to [POST http://127.0.0.1:8200/wd/hub/session] with body: {"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"Android","udid":"HJDM0000000C","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","newCommandTimeout":2000,"noReset":true},"platformName":"Android","udid":"HJDM0000000C","deviceName":"HJDM0000000C","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","newCommandTimeout":2000,"noReset":true,"deviceUDID":"HJDM0000000C"}],"alwaysMatch":{}}}
+2021-08-11 02:01:19:652 [WD Proxy] Got response with status 200: {"sessionId":"162a89a4-fd01-482c-8ba6-b2f08db3c2f2","value":{"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"Android","udid":"HJDM0000000C","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","newCommandTimeout":2000,"noReset":true},"platformName":"Android","udid":"HJDM0000000C","deviceName":"HJDM0000000C","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","newCommandTimeout":2000,"noReset":true,"deviceUDID":"HJDM0000000C"}],"alwaysMatch":{}},"sessionId":"162a89a4-fd01-482c-8ba6-b2f08db3c2f2"}}
+2021-08-11 02:01:19:653 [WD Proxy] Determined the downstream protocol as 'W3C'
+2021-08-11 02:01:19:688 [WD Proxy] Proxying [GET /appium/device/info] to [GET http://127.0.0.1:8200/wd/hub/session/162a89a4-fd01-482c-8ba6-b2f08db3c2f2/appium/device/info] with no body
+2021-08-11 02:01:19:758 [WD Proxy] Got response with status 200: {"sessionId":"162a89a4-fd01-482c-8ba6-b2f08db3c2f2","value":{"androidId":"4af485a4561e684d","apiVersion":"30","bluetooth":{"state":"OFF"},"brand":"BQru","carrierName":"","displayDensity":240,"locale":"zh_CN_#Hans","manufacturer":"BQru","model":"BQ-5060L","networks":[],"platformVersion":"11","realDisplaySize":"480x854","timeZone":"Europe/Moscow"}}
+2021-08-11 02:01:19:759 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell dumpsys window'
+2021-08-11 02:01:20:023 [AndroidDriver] Screen already unlocked, doing nothing
+2021-08-11 02:01:20:024 [UiAutomator2] Starting 'com.android.cts.verifier/com.android.cts.verifier.CtsVerifierActivity and waiting for 'com.android.cts.verifier/com.android.cts.verifier.CtsVerifierActivity'
+2021-08-11 02:01:20:026 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell am start -W -n com.android.cts.verifier/com.android.cts.verifier.CtsVerifierActivity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000'
+2021-08-11 02:01:20:436 [ADB] We tried to start an activity that doesn't exist, retrying with '.com.android.cts.verifier.CtsVerifierActivity' activity name
+2021-08-11 02:01:20:436 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell am start -W -n com.android.cts.verifier/.com.android.cts.verifier.CtsVerifierActivity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000'
+2021-08-11 02:01:20:851 [UiAutomator2] Deleting UiAutomator2 session
+2021-08-11 02:01:20:852 [UiAutomator2] Deleting UiAutomator2 server session
+2021-08-11 02:01:20:853 [WD Proxy] Matched '/' to command name 'deleteSession'
+2021-08-11 02:01:20:853 [WD Proxy] Proxying [DELETE /] to [DELETE http://127.0.0.1:8200/wd/hub/session/162a89a4-fd01-482c-8ba6-b2f08db3c2f2] with no body
+2021-08-11 02:01:20:873 [WD Proxy] Got response with status 200: {"sessionId":"162a89a4-fd01-482c-8ba6-b2f08db3c2f2","value":null}
+2021-08-11 02:01:20:873 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell am force-stop com.android.cts.verifier'
+2021-08-11 02:01:21:037 [Logcat] Stopping logcat capture
+2021-08-11 02:01:21:043 [ADB] Removing forwarded port socket connection: 8200 
+2021-08-11 02:01:21:043 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C forward --remove tcp:8200'
+2021-08-11 02:01:21:112 [UiAutomator2] Restoring hidden api policy to the device default configuration
+2021-08-11 02:01:21:112 [ADB] Running 'D:\Program Files\Android\SDK\platform-tools\adb.exe -P 5037 -s HJDM0000000C shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy''
+2021-08-11 02:01:21:374 [BaseDriver] Event 'newSessionStarted' logged at 1628647281373 (10:01:21 GMT+0800 (中国标准时间))
+2021-08-11 02:01:21:465 [W3C] Encountered internal error running command: Error: Cannot start the 'com.android.cts.verifier' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.android.cts.verifier' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.android.cts.verifier.CtsVerifierActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity
+2021-08-11 02:01:21:465 [W3C]     at ADB.startApp (C:\Users\A1-0572\AppData\Roaming\npm\node_modules\appium\node_modules\appium-adb\lib\tools\apk-utils.js:179:11)
+2021-08-11 02:01:21:503 [HTTP] <-- POST /wd/hub/session 500 11848 ms - 1719
+2021-08-11 02:01:21:504 [HTTP] 
+2021-08-11 02:01:21:554 [Instrumentation] .
+2021-08-11 02:01:21:591 [Instrumentation] Time: 4.119
+2021-08-11 02:01:21:591 [Instrumentation] 
+2021-08-11 02:01:21:591 [Instrumentation] OK (1 test)
+2021-08-11 02:01:22:066 [Instrumentation] The process has exited with code 0

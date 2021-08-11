@@ -95,7 +95,6 @@ class Server:
         for i in range(len(self.device_list)):
             appium_start = threading.Thread(target=self.start_server, args=(i,))
             appium_start.start()
-
         time.sleep(20)
 
 
