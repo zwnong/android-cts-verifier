@@ -25,6 +25,7 @@ class TestCtsVerifier:
         self.app.device_init()
         self.cts_driver = self.app.start_driver()
         self.settings_driver = self.app.start_other_device_cts_driver()
+        self.app.goto_other_device_cts_driver_page().camera_performance()
 
     def teardown_class(self):
         print('******所有用例结束******')
@@ -32,6 +33,7 @@ class TestCtsVerifier:
         self.app.stop_cts_driver()
         print('停止settings_driver')
         self.app.stop_setting_driver()
+        self.app.stop_other_device()
         print('关闭appium server')
         self.server.kill_server()
 
@@ -238,10 +240,29 @@ class TestCtsVerifier:
         else:
             print('不在device_admin_tapjacking_test页面')
 
-    # -----------------------------------------------DISPLAY CUTOUT------------------------------
     @pytest.mark.run(order=17)
+    def test_admin_uninstall_test(self):
+        # 安装辅助程序并断言是否安装成功
+        self.app.install_device_admin()
+        assert 'Success' in self.app.install_device_admin()
+        print('install CtsEmptyDeviceAdmin.apk:Success')
+        # 设置 Activate device admin app
+        self.app.start_settings()
+        self.app.goto_setting_main_page().set_activate_this_device_admin_app()
+        # self.app.start_activity('com.android.cts.verifier', 'com.android.cts.verifier.CtsVerifierActivity')
+        # device_admin_uninstall_test_page = self.app.goto_cts_main_page().device_admin_uninstall_test()
+        # device_admin_uninstall_test_page.enable_admin()
+        # self.app.uninstall_device_admin()
+        # sleep(1)
+        # device_admin_uninstall_test_page.launch_settings()
+        # device_admin_uninstall_test_page.pass_btn()
+        # self.app.stop_setting_driver()
+
+    # -----------------------------------------------DISPLAY CUTOUT------------------------------
+    @pytest.mark.run(order=18)
     def test_display_cutout_test(self):
         screen_lock_test = self.app.goto_cts_main_page().display_cutout_test()
         screen_lock_test.click_numbers()
         sleep(2)
         screen_lock_test.pass_btn()
+

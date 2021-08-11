@@ -11,6 +11,7 @@ import os
 import subprocess
 from time import sleep
 
+from utils.dos_cmd import DosCmd
 from utils.sever import Server
 from utils.write_user_command import WriteUserCommand
 from selenium.common.exceptions import NoSuchElementException
@@ -23,6 +24,7 @@ from base.base_page import BasePage
 
 file_path = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".")}\datas\user_config.yaml'
 data = GetFile(file_path=file_path)
+device_list = Server().get_device()
 
 
 class App(BasePage):
@@ -41,21 +43,6 @@ class App(BasePage):
         )
         return self.driver
 
-    def start_other_device_cts_driver(self):
-        """
-        # 启动 另一个设备中的cts-verifiver.apk
-        :return:
-        """
-        device = data.get_value('user_info_1')['deviceName']
-        port = data.get_value('user_info_1')['port']
-        self.start_other_device_cts_driver = BaseDriver().android_driver(
-            str(device),
-            "com.android.cts.verifier",
-            "com.android.cts.verifier.CtsVerifierActivity",
-            port
-        )
-        return self.start_other_device_cts_driver
-
     def start_settings(self):
         """
         启动主测试apk cts_verifier
@@ -71,29 +58,60 @@ class App(BasePage):
         )
         return self.settings_driver
 
-    def goto_setting_main_page(self):
-        return SettingsMainPage(self.settings_driver)
+    def start_other_device_cts_driver(self):
+        """
+        # 启动 另一个设备中的cts-verifiver.apk
+        :return:
+        """
+        device = data.get_value('user_info_1')['deviceName']
+        port = data.get_value('user_info_1')['port']
+        self.start_other_device_cts_driver = BaseDriver().android_driver(
+            str(device),
+            "com.android.cts.verifier",
+            "com.android.cts.verifier.CtsVerifierActivity",
+            port
+        )
+        return self.start_other_device_cts_driver
 
     def goto_cts_main_page(self):
         return MainPage(self.driver)
+
+    def goto_setting_main_page(self):
+        return SettingsMainPage(self.settings_driver)
 
     def goto_other_device_cts_driver_page(self):
         return MainPage(self.start_other_device_cts_driver)
 
     def stop_cts_driver(self):
-        self.start_driver().quit()
+        self.driver.quit()
 
     def stop_setting_driver(self):
-        self.start_settings().quit()
+        self.settings_driver.quit()
+
+    def stop_other_device(self):
+        self.start_other_device_cts_driver.quit()
 
     def implicitly_wait(self, time):
         return self.driver.implicitly_wait(time)
+
+    def install_device_admin(self):
+        ept = DosCmd()
+        apk_path = fr'{self.father_path()}\cts_test_apks\CtsEmptyDeviceAdmin.apk'
+        msg = ept.excute_cmd_result(f'adb -s {device_list[0]} install {apk_path}')
+        return msg
+
+    def uninstall_device_admin(self):
+        package_name = 'com.android.cts.emptydeviceadmin'
+        subprocess.Popen(f'adb -s {device_list[0]} uninstall {package_name}', shell=True)
 
     def click_back(self):
         self.driver.keyevent(4)
 
     def click_home(self):
         self.driver.keyevent(3)
+
+    def start_activity(self, package, activity):
+        os.system(fr'adb shell am start -n {package}/{activity}')
 
     def cts_page_source(self):
         return self.driver.page_source
@@ -105,9 +123,9 @@ class App(BasePage):
     def device_init(self):
         self.start_driver().keyevent(82)
         self.start_driver().keyevent(82)
-        device_list = Server().get_device()
-        for device in device_list:
-            subprocess.Popen(f"adb -s {device} shell settings put global hidden_api_policy 1", shell=True)
+        # device_list = Server().get_device()
+        # for device in device_list:
+        #     subprocess.Popen(f"adb -s {device} shell settings put global hidden_api_policy 1", shell=True)
 
     def camera_performance_page_opinion(self, time):
         """

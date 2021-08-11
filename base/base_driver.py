@@ -25,7 +25,6 @@ class BaseDriver:
             new_command_timeout = 2000
         else:
             new_command_timeout = new_command_timeout
-        # cts_path = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".")}\cts_test_apks\CtsVerifier.apk'
         desirecaps = {
             "platformName": "Android",
             # automationName: UiAutomator2,
@@ -42,6 +41,6 @@ class BaseDriver:
             "noReset": True
         }
         driver = webdriver.Remote(f"http://127.0.0.1:{port}/wd/hub", desirecaps)
-        driver.implicitly_wait(10)
+        driver.implicitly_wait(20)
         return driver
 

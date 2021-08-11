@@ -1,0 +1,19 @@
+Security:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/title" and @text="Security"]
+
+device_admin_apps:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/title" and @text="Device admin apps"]
+
+test_device_admin:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/title" and @text="Test Device Admin"]
+
+activate_this_device_admin_app:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="android:id/title" and @text="Activate this device admin app"]
