@@ -17,15 +17,22 @@ from utils.sever import Server
 class TestCtsVerifier:
 
     def setup_class(self):
+        print('启动appium server')
         self.server = Server()
         self.server.main()
+        print('初始化')
         self.app = App()
-        self.cts_driver = self.app.start_cts_driver()
-        self.settings_driver = self.app.start_android_settings_driver()
+        self.app.device_init()
+        self.cts_driver = self.app.start_driver()
+        self.settings_driver = self.app.start_other_device_cts_driver()
 
     def teardown_class(self):
+        print('******所有用例结束******')
+        print('关闭cts_driver')
         self.app.stop_cts_driver()
+        print('停止settings_driver')
         self.app.stop_setting_driver()
+        print('关闭appium server')
         self.server.kill_server()
 
     def setup(self):
@@ -33,7 +40,7 @@ class TestCtsVerifier:
 
     def teardown(self):
         if 'CTS Verifier 11_r4' in self.app.cts_page_source():
-            print("test_single_capture test finished")
+            print("")
         else:
             self.app.cts_driver_restart()
         sleep(2)
@@ -157,7 +164,7 @@ class TestCtsVerifier:
         """
         camera_performance_page = self.app.goto_cts_main_page().camera_performance()
         camera_performance_page.click_test_reprocessing_throughput()
-        self.app.camera_performance_page_opinion(3)
+        self.app.camera_performance_page_opinion(2)
         assert 'CTS Verifier 11_r4' in self.app.cts_page_source()
 
     @pytest.mark.run(order=11)
@@ -168,7 +175,7 @@ class TestCtsVerifier:
         """
         camera_performance_page = self.app.goto_cts_main_page().camera_performance()
         camera_performance_page.click_test_high_quality_reprocessing_throughput()
-        self.app.camera_performance_page_opinion(3)
+        self.app.camera_performance_page_opinion(2)
         assert 'CTS Verifier 11_r4' in self.app.cts_page_source()
 
     @pytest.mark.run(order=12)
@@ -200,12 +207,14 @@ class TestCtsVerifier:
         assert 'CTS Verifier 11_r4' in self.app.cts_page_source()
 
     @pytest.mark.run(order=14)
-    def click_pass(self):
+    def test_click_camera_performance_page_pass_btn(self):
         camera_performance_page = self.app.goto_cts_main_page().camera_performance()
-        try:
-            camera_performance_page.pass_btn()
-        except:
+        camera_performance_page.pass_btn()
+        sleep(1)
+        if 'testSingleCapture' in self.app.cts_page_source():
             camera_performance_page.fail_btn()
+        else:
+            print('有异常，具体查看camera_performance项')
 
     # -----------------------------------------------CAR------------------------------------------------
     @pytest.mark.run(order=15)

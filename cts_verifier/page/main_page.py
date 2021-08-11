@@ -88,6 +88,7 @@ class MainPage(BasePage):
         self.swipe_find('device_admin_tapjacking_test')
         return DeviceAdminTapjackingTestPage(self.driver)
 
+    # // to do
     def device_admin_uninstall_test(self):
         """
         :return:进入Device Admin Uninstall Test测试

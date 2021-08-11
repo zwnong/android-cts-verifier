@@ -6,13 +6,14 @@
 @Time:          2021/8/10 9:17
 
 """
-import numbers
-
+import os
+import sys
 from appium import webdriver
+sys.path.append('../')
 
 
 class BaseDriver:
-    def android_driver(self, device: str, package: str, activity: str, port: numbers, new_command_timeout=None):
+    def android_driver(self, device: str, package: str, activity: str, port, new_command_timeout=None):
         """
         :param device: 设备名
         :param package: 启动的app的包名
@@ -24,10 +25,12 @@ class BaseDriver:
             new_command_timeout = 2000
         else:
             new_command_timeout = new_command_timeout
+        # cts_path = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".")}\cts_test_apks\CtsVerifier.apk'
         desirecaps = {
             "platformName": "Android",
             # automationName: UiAutomator2,
             "deviceName": f"{device}",
+            # "app": f"{cts_path}",
             "appPackage": f"{package}",
             "appActivity": f"{activity}",
             # 跳过安装uiautomator2 服务

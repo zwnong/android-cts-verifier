@@ -8,14 +8,16 @@
 """
 import numbers
 import os
+import subprocess
 from time import sleep
 
+from utils.sever import Server
+from utils.write_user_command import WriteUserCommand
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-from appium.webdriver.webdriver import WebDriver
-
 from base.base_driver import BaseDriver
 from cts_verifier.page.main_page import MainPage
+from cts_verifier.page.settings_main_page import SettingsMainPage
 from utils.get_file import GetFile
 from base.base_page import BasePage
 
@@ -24,63 +26,88 @@ data = GetFile(file_path=file_path)
 
 
 class App(BasePage):
-    def start_cts_driver(self):
+    def start_driver(self):
         """
         启动主测试apk cts_verifier
         :return:
         """
-        cts_device = data.get_value('user_info_0')['deviceName']
-        cts_port = data.get_value('user_info_0')['port']
-        self.cts_driver = BaseDriver().android_driver(
-            str(cts_device),
+        device = data.get_value('user_info_0')['deviceName']
+        port = data.get_value('user_info_0')['port']
+        self.driver = BaseDriver().android_driver(
+            str(device),
             "com.android.cts.verifier",
             "com.android.cts.verifier.CtsVerifierActivity",
-            cts_port
+            port
         )
-        return self
+        return self.driver
 
-    def start_android_settings_driver(self):
+    def start_other_device_cts_driver(self):
         """
-        # 启动 settings apk
+        # 启动 另一个设备中的cts-verifiver.apk
         :return:
         """
-        settings_driver = data.get_value('user_info_1')['deviceName']
-        settings_port = data.get_value('user_info_1')['port']
+        device = data.get_value('user_info_1')['deviceName']
+        port = data.get_value('user_info_1')['port']
+        self.start_other_device_cts_driver = BaseDriver().android_driver(
+            str(device),
+            "com.android.cts.verifier",
+            "com.android.cts.verifier.CtsVerifierActivity",
+            port
+        )
+        return self.start_other_device_cts_driver
+
+    def start_settings(self):
+        """
+        启动主测试apk cts_verifier
+        :return:
+        """
+        device = data.get_value('user_info_0')['deviceName']
+        port = data.get_value('user_info_0')['port']
         self.settings_driver = BaseDriver().android_driver(
-            str(settings_driver),
+            str(device),
             "com.android.settings",
             "com.android.settings.Settings",
-            settings_port,
-            5000
+            port
         )
+        return self.settings_driver
+
+    def goto_setting_main_page(self):
+        return SettingsMainPage(self.settings_driver)
 
     def goto_cts_main_page(self):
-        return MainPage(self.cts_driver)
+        return MainPage(self.driver)
 
-    def goto_settings_main_page(self):
-        return MainPage(self.settings_driver)
+    def goto_other_device_cts_driver_page(self):
+        return MainPage(self.start_other_device_cts_driver)
 
     def stop_cts_driver(self):
-        self.cts_driver.quit()
+        self.start_driver().quit()
 
     def stop_setting_driver(self):
-        self.settings_driver.quit()
+        self.start_settings().quit()
 
     def implicitly_wait(self, time):
-        return self.cts_driver.implicitly_wait(time)
+        return self.driver.implicitly_wait(time)
 
     def click_back(self):
-        self.cts_driver.keyevent(4)
+        self.driver.keyevent(4)
 
     def click_home(self):
-        self.cts_driver.keyevent(3)
+        self.driver.keyevent(3)
 
     def cts_page_source(self):
-        return self.cts_driver.page_source
+        return self.driver.page_source
 
     def find_elements(self, element):
-        msg = self.cts_driver.find_elements(By.XPATH, element)
+        msg = self.driver.find_elements(By.XPATH, element)
         return msg
+
+    def device_init(self):
+        self.start_driver().keyevent(82)
+        self.start_driver().keyevent(82)
+        device_list = Server().get_device()
+        for device in device_list:
+            subprocess.Popen(f"adb -s {device} shell settings put global hidden_api_policy 1", shell=True)
 
     def camera_performance_page_opinion(self, time):
         """
@@ -98,10 +125,10 @@ class App(BasePage):
         self.click_back()
 
     def tap_screen(self, x, y):
-        self.cts_driver.tap([(x, y)], 5)
+        self.driver.tap([(x, y)], 5)
 
     def cts_driver_restart(self):
-        self.cts_driver.launch_app()
+        self.driver.launch_app()
 
     def isElement(self, locator, ele):
         """
@@ -114,22 +141,22 @@ class App(BasePage):
         try:
             if locator == "id":
                 # self.driver.implicitly_wait(60)
-                self.cts_driver.find_element_by_id(ele)
+                self.driver.find_element_by_id(ele)
             elif locator == "xpath":
                 # self.driver.implicitly_wait(60)
-                self.cts_driver.find_element_by_xpath(ele)
+                self.driver.find_element_by_xpath(ele)
             elif locator == "class":
-                self.cts_driver.find_element_by_class_name(ele)
+                self.driver.find_element_by_class_name(ele)
             elif locator == "link text":
-                self.cts_driver.find_element_by_link_text(ele)
+                self.driver.find_element_by_link_text(ele)
             elif locator == "partial link text":
-                self.cts_driver.find_element_by_partial_link_text(ele)
+                self.driver.find_element_by_partial_link_text(ele)
             elif locator == "name":
-                self.cts_driver.find_element_by_name(ele)
+                self.driver.find_element_by_name(ele)
             elif locator == "tag name":
-                self.cts_driver.find_element_by_tag_name(ele)
+                self.driver.find_element_by_tag_name(ele)
             elif locator == "css selector":
-                self.cts_driver.find_element_by_css_selector(ele)
+                self.driver.find_element_by_css_selector(ele)
             flag = True
         except NoSuchElementException as e:
             flag = False

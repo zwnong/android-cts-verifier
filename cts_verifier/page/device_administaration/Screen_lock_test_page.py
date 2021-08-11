@@ -11,4 +11,7 @@ from base.base_page import BasePage
 
 class ScreenLockTestPage(BasePage):
     def force_lock(self):
-        self.parse(fr'{self.father_path()}\yaml\device_administration\Screen_lock_test_page.yml', 'force_lock')
+        self.parse(fr'{self.father_path()}\yaml\device_administration\screen_lock_test_page.yml', 'force_lock')
+
+    def pass_btn(self):
+        self.parse(fr'{self.father_path()}\yaml\device_administration\screen_lock_test_page.yml', 'pass_btn')
