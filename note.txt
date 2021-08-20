@@ -9,11 +9,23 @@ vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 |                                                         |
 |                       waterworld                           |
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-cts_verifier:
+----------------------------------------------------------------cts_verifier:
 Device Owner Test 设置设备admin命令：
 adb shell dpm set-device-owner com.android.cts.emptydeviceowner/.EmptyDeviceAdmin
+
 报错：java.lang.IllegalStateException: Trying to set the device owner, but device owner is already set.
 解决方案：移除admin----》adb shell dpm remove-active-admin  'com.android.cts.emptydeviceowner/.EmptyDeviceAdmin'
+
+提示：Not allowed to set the device owner because there are already several users on the device ：说明手机的多用户或应用双开没删干净或者关闭
+解决方法：删除或关闭所有的多用户、访客模式以及应用双开
+
+提示 “Trying to set the device owner, but device owner is already set.”   说明手机已经设置了其他 APP 为设备管理员
+
+一般测试cts会出现这种问题的原因是：在进行 BYOD Provisioning tests 时设置的cts-verifier管理权限没有进行回复或者回复不成功
+解决：再次返回 BYOD Provisioning tests ---> Custom tems  若有残余，DELETE 即可
+
+
+
 
 #!/bin/sh
 echo "use it  by : runDevice.sh -s series_number &  runDevice.sh"
