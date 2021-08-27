@@ -14,7 +14,7 @@ Device Owner Test 设置设备admin命令：
 adb shell dpm set-device-owner com.android.cts.emptydeviceowner/.EmptyDeviceAdmin
 
 报错：java.lang.IllegalStateException: Trying to set the device owner, but device owner is already set.
-解决方案：移除admin----》adb shell dpm remove-active-admin  'com.android.cts.emptydeviceowner/.EmptyDeviceAdmin'
+解决方案：移除admin----》adb shell dpm remove-active-admin 'com.android.cts.emptydeviceowner/.EmptyDeviceAdmin'
 
 提示：Not allowed to set the device owner because there are already several users on the device ：说明手机的多用户或应用双开没删干净或者关闭
 解决方法：删除或关闭所有的多用户、访客模式以及应用双开
@@ -39,7 +39,7 @@ fi
 adb $adb_options shell dpm set-device-owner  'com.android.cts.emptydeviceowner/.EmptyDeviceAdmin'
 ————————————————
 
-
+.
 
 概率性已解决问题处理方法：严重问题一周三个版本，每个版本验证30次或者30min。普通问题一周三个版本，20次或者15min。
 

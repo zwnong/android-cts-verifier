@@ -28,7 +28,7 @@ device_list = Server().get_device()
 
 
 class App(BasePage):
-    def start_driver(self):
+    def start_device_0_driver(self):
         """
         启动主测试apk cts_verifier
         :return:
@@ -43,56 +43,38 @@ class App(BasePage):
         )
         return self.driver
 
-    def start_settings(self):
-        """
-        启动主测试apk cts_verifier
-        :return:
-        """
+    def start_any_driver(self, package, activity):
+        """ 启动一个传入的apk"""
         device = data.get_value('user_info_0')['deviceName']
         port = data.get_value('user_info_0')['port']
-        self.settings_driver = BaseDriver().android_driver(
+        any_driver = BaseDriver().android_driver(
             str(device),
-            "com.android.settings",
-            "com.android.settings.Settings",
+            package,
+            activity,
             port
         )
-        return self.settings_driver
+        return any_driver
 
-    def start_other_device_cts_driver(self):
+    def start_device_1_driver(self):
         """
         # 启动 另一个设备中的cts-verifiver.apk
         :return:
         """
         device = data.get_value('user_info_1')['deviceName']
         port = data.get_value('user_info_1')['port']
-        self.start_other_device_cts_driver = BaseDriver().android_driver(
+        start_device_1_driver = BaseDriver().android_driver(
             str(device),
             "com.android.cts.verifier",
             "com.android.cts.verifier.CtsVerifierActivity",
             port
         )
-        return self.start_other_device_cts_driver
+        return start_device_1_driver
 
-    def goto_cts_main_page(self):
+    def goto_main_page(self):
         return MainPage(self.driver)
 
-    def goto_setting_main_page(self):
-        return SettingsMainPage(self.settings_driver)
-
-    def goto_other_device_cts_driver_page(self):
-        return MainPage(self.start_other_device_cts_driver)
-
-    def stop_cts_driver(self):
+    def stop_driver(self):
         self.driver.quit()
-
-    def stop_setting_driver(self):
-        self.settings_driver.quit()
-
-    def stop_other_device(self):
-        self.start_other_device_cts_driver.quit()
-
-    def implicitly_wait(self, time):
-        return self.driver.implicitly_wait(time)
 
     def install_device_admin(self):
         ept = DosCmd()
@@ -121,8 +103,8 @@ class App(BasePage):
         return msg
 
     def device_init(self):
-        self.start_driver().keyevent(82)
-        self.start_driver().keyevent(82)
+        self.start_device_0_driver().keyevent(82)
+        self.start_device_0_driver().keyevent(82)
         # device_list = Server().get_device()
         # for device in device_list:
         #     subprocess.Popen(f"adb -s {device} shell settings put global hidden_api_policy 1", shell=True)

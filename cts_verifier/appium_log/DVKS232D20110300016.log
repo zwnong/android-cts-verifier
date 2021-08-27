@@ -1,0 +1,79 @@
+2021-08-24 03:25:55:926 [Appium] Welcome to Appium v1.21.0
+2021-08-24 03:25:55:927 [Appium] Non-default server args:
+2021-08-24 03:25:55:927 [Appium]   bootstrapPort: 4923
+2021-08-24 03:25:55:928 [Appium]   sessionOverride: true
+2021-08-24 03:25:55:928 [Appium]   logFile: D:\ui_framework\cts_verifier\appium_log\DVKS232D20110300016.log
+2021-08-24 03:25:55:928 [Appium]   udid: DVKS232D20110300016
+2021-08-24 03:25:55:928 [Appium]   noReset: true
+2021-08-24 03:25:55:929 [Appium] Deprecated server args:
+2021-08-24 03:25:55:929 [Appium]   -U => --default-capabilities
+2021-08-24 03:25:55:929 [Appium]   --no-reset => --default-capabilities
+2021-08-24 03:25:55:929 [Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
+2021-08-24 03:25:55:929 [Appium]   udid: DVKS232D20110300016
+2021-08-24 03:25:55:929 [Appium]   noReset: true
+2021-08-24 03:25:55:963 [Appium] Appium REST http interface listener started on 0.0.0.0:4723
+2021-08-24 03:26:14:465 [HTTP] Request idempotency key: a9842fbe-d63d-4a45-8d2c-491750dd490e
+2021-08-24 03:26:14:483 [HTTP] --> POST /wd/hub/session
+2021-08-24 03:26:14:483 [HTTP] {"capabilities":{"firstMatch":[{"platformName":"Android","appium:deviceName":"DVKS232D20110300016","appium:appPackage":"com.android.cts.verifier","appium:appActivity":"com.android.cts.verifier.CtsVerifierActivity","appium:settings[waitForIdleTimeout]":1,"appium:newCommandTimeout":2000,"appium:noReset":true}]},"desiredCapabilities":{"platformName":"Android","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","settings[waitForIdleTimeout]":1,"newCommandTimeout":2000,"noReset":true}}
+2021-08-24 03:26:14:484 [W3C] Calling AppiumDriver.createSession() with args: [{"platformName":"Android","deviceName":"DVKS232D20110300016","appPackage":"com.android.cts.verifier","appActivity":"com.android.cts.verifier.CtsVerifierActivity","settings[waitForIdleTimeout]":1,"newCommandTimeout":2000,"noReset":true},null,{"firstMatch":[{"platformName":"Android","appium:deviceName":"DVKS232D20110300016","appium:appPackage":"com.android.cts.verifier","appium:appActivity":"com.android.cts.verifier.CtsVerifierActivity","appium:settings[waitForIdleTimeout]":1,"appium:newCommandTimeout":2000,"appium:noReset":true}]}]
+2021-08-24 03:26:14:485 [BaseDriver] Event 'newSessionRequested' logged at 1629775574485 (11:26:14 GMT+0800 (中国标准时间))
+2021-08-24 03:26:14:487 [BaseDriver] The following capabilities are not standard capabilities and should have an extension prefix:
+2021-08-24 03:26:14:488 [BaseDriver]   udid
+2021-08-24 03:26:14:490 [Appium] 
+2021-08-24 03:26:14:491 [Appium] ======================================================================
+2021-08-24 03:26:14:491 [Appium]   DEPRECATION WARNING:
+2021-08-24 03:26:14:491 [Appium] 
+2021-08-24 03:26:14:491 [Appium]   The 'automationName' capability was not provided in the desired 
+2021-08-24 03:26:14:491 [Appium]   capabilities for this Android session
+2021-08-24 03:26:14:491 [Appium] 
+2021-08-24 03:26:14:491 [Appium]   Setting 'automationName=UiAutomator2' by default and using the 
+2021-08-24 03:26:14:491 [Appium]   UiAutomator2 Driver
+2021-08-24 03:26:14:491 [Appium] 
+2021-08-24 03:26:14:492 [Appium]   The next major version of Appium (2.x) will **require** the 
+2021-08-24 03:26:14:492 [Appium]   'automationName' capability to be set for all sessions on all 
+2021-08-24 03:26:14:492 [Appium]   platforms
+2021-08-24 03:26:14:492 [Appium] 
+2021-08-24 03:26:14:492 [Appium]   In previous versions (Appium <= 1.13.x), the default was 
+2021-08-24 03:26:14:492 [Appium]   'automationName=UiAutomator1'
+2021-08-24 03:26:14:492 [Appium] 
+2021-08-24 03:26:14:492 [Appium]   If you wish to use that automation instead of UiAutomator2, please 
+2021-08-24 03:26:14:492 [Appium]   add 'automationName=UiAutomator1' to your desired capabilities
+2021-08-24 03:26:14:492 [Appium] 
+2021-08-24 03:26:14:492 [Appium]   For more information about drivers, please visit 
+2021-08-24 03:26:14:493 [Appium]   http://appium.io/docs/en/about-appium/intro/ and explore the 
+2021-08-24 03:26:14:493 [Appium]   'Drivers' menu
+2021-08-24 03:26:14:493 [Appium] 
+2021-08-24 03:26:14:493 [Appium] ======================================================================
+2021-08-24 03:26:14:493 [Appium] 
+2021-08-24 03:26:14:922 [Appium] Appium v1.21.0 creating new AndroidUiautomator2Driver (v1.65.0) session
+2021-08-24 03:26:14:922 [Appium] There are no active sessions for cleanup
+2021-08-24 03:26:14:926 [BaseDriver] W3C capabilities and MJSONWP desired capabilities were provided
+2021-08-24 03:26:14:926 [BaseDriver] Creating session with W3C capabilities: {
+2021-08-24 03:26:14:926 [BaseDriver]   "alwaysMatch": {
+2021-08-24 03:26:14:926 [BaseDriver]     "platformName": "Android",
+2021-08-24 03:26:14:926 [BaseDriver]     "appium:udid": "DVKS232D20110300016",
+2021-08-24 03:26:14:926 [BaseDriver]     "appium:deviceName": "DVKS232D20110300016",
+2021-08-24 03:26:14:926 [BaseDriver]     "appium:appPackage": "com.android.cts.verifier",
+2021-08-24 03:26:14:926 [BaseDriver]     "appium:appActivity": "com.android.cts.verifier.CtsVerifierActivity",
+2021-08-24 03:26:14:926 [BaseDriver]     "appium:newCommandTimeout": 2000,
+2021-08-24 03:26:14:926 [BaseDriver]     "appium:noReset": true
+2021-08-24 03:26:14:926 [BaseDriver]   },
+2021-08-24 03:26:14:927 [BaseDriver]   "firstMatch": [
+2021-08-24 03:26:14:927 [BaseDriver]     {}
+2021-08-24 03:26:14:927 [BaseDriver]   ]
+2021-08-24 03:26:14:927 [BaseDriver] }
+2021-08-24 03:26:14:932 [BaseDriver] Session created with session id: 0172b3f1-fdbf-492e-bc88-5bc6e3c0096e
+2021-08-24 03:26:14:933 [UiAutomator2] Starting 'com.android.cts.verifier' directly on the device
+2021-08-24 03:26:14:934 [UiAutomator2] Deleting UiAutomator2 session
+2021-08-24 03:26:14:936 [BaseDriver] Event 'newSessionStarted' logged at 1629775574936 (11:26:14 GMT+0800 (中国标准时间))
+2021-08-24 03:26:15:005 [W3C] Encountered internal error running command: Error: Neither ANDROID_HOME nor ANDROID_SDK_ROOT environment variable was exported. Read https://developer.android.com/studio/command-line/variables for more details
+2021-08-24 03:26:15:005 [W3C]     at requireSdkRoot (C:\Users\Admin\AppData\Roaming\npm\node_modules\appium\node_modules\appium-adb\lib\helpers.js:36:11)
+2021-08-24 03:26:15:005 [W3C]     at Function.createADB (C:\Users\Admin\AppData\Roaming\npm\node_modules\appium\node_modules\appium-adb\lib\adb.js:55:23)
+2021-08-24 03:26:15:005 [W3C]     at Object.createBaseADB (C:\Users\Admin\AppData\Roaming\npm\node_modules\appium\node_modules\appium-android-driver\lib\android-helpers.js:108:20)
+2021-08-24 03:26:15:005 [W3C]     at Object.getDeviceInfoFromCaps (C:\Users\Admin\AppData\Roaming\npm\node_modules\appium\node_modules\appium-android-driver\lib\android-helpers.js:193:29)
+2021-08-24 03:26:15:005 [W3C]     at AndroidUiautomator2Driver.startUiAutomator2Session (C:\Users\Admin\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-driver\lib\driver.js:326:40)
+2021-08-24 03:26:15:005 [W3C]     at AndroidUiautomator2Driver.createSession (C:\Users\Admin\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-driver\lib\driver.js:223:18)
+2021-08-24 03:26:15:005 [W3C]     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2021-08-24 03:26:15:005 [W3C]     at AppiumDriver.createSession (C:\Users\Admin\AppData\Roaming\npm\node_modules\appium\lib\appium.js:387:35)
+2021-08-24 03:26:15:018 [HTTP] <-- POST /wd/hub/session 500 534 ms - 877
+2021-08-24 03:26:15:019 [HTTP] 

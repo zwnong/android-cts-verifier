@@ -13,7 +13,7 @@ sys.path.append('../')
 
 
 class BaseDriver:
-    def android_driver(self, device: str, package: str, activity: str, port, new_command_timeout=None):
+    def android_driver(self, device: str, package: str, activity: str, port):
         """
         :param device: 设备名
         :param package: 启动的app的包名
@@ -21,10 +21,6 @@ class BaseDriver:
         :param port: appium -p 端口号
         :return:
         """
-        if new_command_timeout is None:
-            new_command_timeout = 2000
-        else:
-            new_command_timeout = new_command_timeout
         desirecaps = {
             "platformName": "Android",
             # automationName: UiAutomator2,
@@ -37,7 +33,7 @@ class BaseDriver:
             # 跳过初始化
             #  skipDeviceInstallation: True
             "settings[waitForIdleTimeout]": 1,
-            "newCommandTimeout": new_command_timeout,
+            "newCommandTimeout": 2000,
             "noReset": True
         }
         driver = webdriver.Remote(f"http://127.0.0.1:{port}/wd/hub", desirecaps)

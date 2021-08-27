@@ -8,5 +8,10 @@
 """
 import pytest
 
+from utils.sever import Server
+
 if __name__ == '__main__':
-    pytest.main()
+    server = Server()
+    server.main()
+    pytest.main(["-vs --alluredir ./allure_report", "test_demo.py"])
+    server.kill_server()
