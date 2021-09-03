@@ -7,6 +7,7 @@ i=1
 while(($i<$count+1))
 do
 	echo ----------------------------------------------
+	echo Total Accesses ：$count
 	echo $device starting:$i
 	for((j=1;j<=2;j++))
 	do 
@@ -16,7 +17,7 @@ do
 		}&
 	done
 	wait
-	adb -s $device shell input keyevent 26
+	adb -s $device shell input keyevent 82
 	adb -s $device shell input keyevent 82
 	# sleep 1
 	adb -s $device shell input tap 402 510
@@ -26,7 +27,7 @@ do
 	sleep $lightscreen
 	adb -s $device shell input keyevent 26
 	sleep $screenoff
-	echo "it hava been run:" $i "times" >$device.txt
+	echo "Total Accesses:"$count",""it hava been run:" $i "times" >$device.txt
 	i=$(($i+1))
 done
 echo finished

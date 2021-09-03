@@ -11,8 +11,11 @@ import yaml
 
 
 class WriteUserCommand:
-    def __init__(self):
-        self.file_path = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".")}\datas\user_config.yaml'
+    def __init__(self, file_path=None):
+        if file_path is None:
+            self.file_path = fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".")}\datas\user_config.yaml'
+        else:
+            self.file_path = file_path
 
     def read_data(self):
         """

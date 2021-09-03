@@ -1,0 +1,9 @@
+take_a_photos:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.camera2:id/shutter_button"]
+
+switch_camera:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.android.camera2:id/btn_camera_switch"]

@@ -85,6 +85,9 @@ class BasePage:
     #         value = None
     #     return value
 
+    def lunch_driver(self):
+        self.driver.launch_app()
+
     # 获取屏幕的宽高
     def get_size(self):
         size = self.driver.get_window_size()

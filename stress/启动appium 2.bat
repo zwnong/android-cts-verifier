@@ -1,0 +1,1 @@
+appium -a 127.0.0.1 -p 4725 -bp 4905 -U P2100950002B --session-override --log P2100950002B.log

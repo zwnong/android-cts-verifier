@@ -6,19 +6,22 @@ read -p 'Please enter the test times:' count
 i=1
 while(($i<$count+1))
 do
-	echo ----------------------------------
-	echo $device starting:$i
+	x=$[RANDOM%700+1]
+	y=$[RANDOM%1000+1]
+	echo =============================================================================================
+	echo device:$device
+	echo Total Accesses ：$count
+	echo starting:$i
 	adb -s $device shell input keyevent 26
 	adb -s $device shell input keyevent 82
-	# sleep 1
-	adb -s $device shell input tap 402 510
-	adb -s $device shell input tap 402 510
-	# sleep 1
+	adb -s $device shell input swipe 350 1300 350 150
+	adb -s $device shell input tap $x $y
+	adb -s $device shell input tap $x $y
 	adb -s $device shell input keyevent 3
 	sleep $lightscreen
 	adb -s $device shell input keyevent 26
 	sleep $screenoff
-	echo "it hava been run:" $i "times" >$device.txt
+	echo "Total Accesses:"$count",""it hava been run:" $i "times" >$device.txt
 	i=$(($i+1))
 	
 done

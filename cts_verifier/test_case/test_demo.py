@@ -33,3 +33,10 @@ class TestDemo:
         """
         # test = self.app.goto_main_page().audio_acoustic_echo_cancellation_AEC_test()
         self.driver.find_element_by_xpath('//*[@resource-id="android:id/text1" and @text="Audio Acoustic Echo Cancellation (AEC) Test"]').click()
+
+    def test_demo_01(self):
+        a = self.driver.start_activity('com.android.settings', 'com.android.settings.Settings')
+        print('*******************************************************************************')
+        print(type(a.find_elements_by_xpath('//*[@text="Display"]')))
+        print('*******************************************************************************')
+

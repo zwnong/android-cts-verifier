@@ -18,9 +18,21 @@ import signal
 import pytest
 import sys
 
-print(sys.path.append(fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + "..")}'))
+from stress.app import App
+from utils.get_file import GetFile
 
+print(sys.path.append(fr'{os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + "..")}'))
+from utils.sever import Server
 from utils.logger import log_init
+
+server = Server()
+
+
+@pytest.fixture(scope='class', autouse=True)
+def start_appium_server():
+    server.main()
+    yield
+    server.kill_server()
 
 
 @pytest.fixture(scope="module", autouse=True)  # scope="module"模块级别 autouse=True主动的运行
@@ -30,7 +42,7 @@ def record():
     :return:
     """
     # 用例运行前
-    log_init()
+    # log_init()
     cmd = "scrcpy -Nr d:/record.mp4"
     p = subprocess.Popen(cmd, shell=True)
     yield  # fixture的一个特点 分割用例运行前后
